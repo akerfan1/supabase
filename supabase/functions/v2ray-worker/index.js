@@ -1,43 +1,33 @@
-// Cloudflare Worker — Xray dynamic best-ping (every 30s) + Fragment
-// Output: JSON array with two full configs so v2rayN imports two separate profiles
-// Routes:
-//   /?uuid=1            -> [ LoadBalance(auto bestPing/30s), Fragment(auto bestPing/30s) ]
-//   /?uuid=1&view=sub   -> v2rayN/NG subscription (links base64; raw nodes)
-// Note: "best" انتخاب در خود Xray انجام می‌شود (observatory + leastPing)، نه در Worker.
+// Deno / Supabase Edge Function
+Deno.serve(async (request) => {
+  const url = new URL(request.url);
+  const uuidKey = url.searchParams.get("uuid") || "";
+  const view = (url.searchParams.get("view") || "").toLowerCase();
 
-export default {
-  async fetch(request) {
-    const url = new URL(request.url);
-    const uuidKey = url.searchParams.get("uuid") || "";
-    const view = (url.searchParams.get("view") || "").toLowerCase();
+  if (!uuidKey) return new Response("Missing uuid", { status: 400 });
 
-    if (!uuidKey) return new Response("Missing uuid", { status: 400 });
-
-    const links = serverGroups[uuidKey];
-    if (!links || !Array.isArray(links) || links.length === 0) {
-      return new Response("Invalid uuid or empty group", { status: 404 });
-    }
-
-    // Parse links to nodes (support VLESS / Trojan / VMess)
-    const nodes = links.map(parseLink).filter(Boolean);
-    if (!nodes.length) return new Response("No valid nodes", { status: 422 });
-
-    // Subscription view (raw links)
-    if (view === "sub") {
-      const b64 = toBase64Utf8(links.join("\n"));
-      return new Response(b64, { headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store" } });
-    }
-
-    // Build two full configs with dynamic leastPing every 30s
-    const configLB = buildFullConfig(nodes, /*withFragment*/ false);
-    const configFragment = null;
-
-    return new Response(JSON.stringify([configLB], null, 2), {
-      headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" }
-    });
+  const links = serverGroups[uuidKey];
+  if (!links || !Array.isArray(links) || links.length === 0) {
+    return new Response("Invalid uuid or empty group", { status: 404 });
   }
-};
 
+  // Parse links to nodes (support VLESS / Trojan / VMess)
+  const nodes = links.map(parseLink).filter(Boolean);
+  if (!nodes.length) return new Response("No valid nodes", { status: 422 });
+
+  // Subscription view (raw links)
+  if (view === "sub") {
+    const b64 = toBase64Utf8(links.join("\n"));
+    return new Response(b64, { headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store" } });
+  }
+
+  // Build two full configs with dynamic leastPing every 30s
+  const configLB = buildFullConfig(nodes, /*withFragment*/ false);
+
+  return new Response(JSON.stringify([configLB], null, 2), {
+    headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" }
+  });
+});
 /* ================
    Server groups
    ================ */
