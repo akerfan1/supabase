@@ -306,7 +306,7 @@ function buildStream(node, withFragment) {
   }
   if (withFragment) {
     // همه outboundهای نودی از طریق این پروکسیِ fragment دایل می‌شن
-    s.sockopt.dialerProxy = "Irancell";
+    s.sockopt.dialerProxy = "fragment";
   }
   return s;
 }
@@ -336,7 +336,7 @@ function buildFullConfig(nodes, withFragment) {
 
   // کانفیگ نهایی — با بالانسر leastLoad + burstObservatory هر 15 دقیقه
   const cfg = {
-    remarks: withFragment ? "Fragment " : "⚡best load {بهترین سرعت}⚡",
+    remarks: withFragment ? "Irancell" : "⚡best load {بهترین سرعت}⚡",
     log: { loglevel: "warning" },
 
     dns: {
