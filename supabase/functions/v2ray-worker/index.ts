@@ -30,8 +30,9 @@ Deno.serve(async (request) => {
 
   // Build two full configs with dynamic leastPing every 30s
   const configLB = buildFullConfig(nodes, /*withFragment*/ false);
+  const configFragment = buildFullConfig(nodes, /*withFragment*/ true);
 
-  return new Response(JSON.stringify([configLB], null, 2), {
+    return new Response(JSON.stringify([configLB, configFragment], null, 2), {
     headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" }
   });
 });
@@ -42,22 +43,19 @@ Deno.serve(async (request) => {
 const serverGroups = {
   "1": [
     // نمونه‌ها — لینک‌های خودت را بگذار
-          "vless://14e28b36-9a4d-40a4-9aff-fb63163c74f4@164.90.176.31:443?encryption=none&security=tls&sni=test1200.erfanhub.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test1200.erfanhub.ir&path=%2Fpyip%3Dprx.erfanfamily2.ir#1",
-          "vless://5f99fbcc-bac8-44f0-9f33-fcb9fecfd326@216.24.57.6:443?encryption=none&security=tls&sni=test5000.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test5000.erfanfamily2.ir&path=%2FeyJqdW5rIjoiRlV2bnBzS09yNVZLIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560#2",
-          "vless://02b1ea62-173d-43df-a566-6f0f65536e23@172.64.231.232:443?path=%2F%3Fed%3D2048&security=tls&alpn=h3%2Ch2%2Chttp%2F1.1&encryption=none&insecure=0&host=hawm.erfanfamily2.ir&fp=chrome&type=ws&allowInsecure=0&sni=hawm.erfanfamily2.ir#3",
+          "vless://14e28b36-9a4d-40a4-9aff-fb63163c74f4@104.16.72.162:443?encryption=none&security=tls&sni=test1200.erfanhub.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test1200.erfanhub.ir&path=%2Fpyip%3D178.156.139.174#1",
+          "vless://5f99fbcc-bac8-44f0-9f33-fcb9fecfd326@198.41.204.141:443?encryption=none&security=tls&sni=test5000.erfanfamily2.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test5000.erfanfamily2.ir&path=%2FeyJqdW5rIjoiRlV2bnBzS09yNVZLIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560#2",
+          "vless://02b1ea62-173d-43df-a566-6f0f65536e23@172.64.75.10:443?encryption=none&security=tls&sni=hawm.erfanfamily2.ir&fp=random&alpn=h3%2Ch2%2Chttp%2F1.1&insecure=0&allowInsecure=0&type=ws&host=hawm.erfanfamily2.ir&path=%2F%3Fed%3D2048#3",
           "vless://e4f3bd9d-cace-4816-8b7d-2cd58fdeea44@172.67.65.146:2096?encryption=none&security=tls&sni=test66698.erfnmndi343-e4b.workers.dev&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=test66698.erfnmndi343-e4b.workers.dev&path=%2F#4", 
           "vless://fa7cb5a1-b713-40eb-b6cd-45b6b5095841@wsabi.erfanhub.ir:443?encryption=none&security=tls&sni=lololowe.wasmer.app&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=lololowe.wasmer.app&path=%2Ffa7cb5a1#5",
-          "vless://fa7cb5a1-b713-40eb-b6cd-45b6b5095841@44.32.235.22:443?encryption=none&security=tls&sni=spring.erfnmndi343-e4b.workers.dev&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=spring.erfnmndi343-e4b.workers.dev&path=%2FutvIMOF9bFmD%3Fed%3D2048#6",
-          "vless://fa7cb5a1-b713-40eb-b6cd-45b6b5095841@wsabi.erfanhub.ir:443?encryption=none&security=tls&sni=popoweqf.wasmer.app&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=popoweqf.wasmer.app&path=%2Ffa7cb5a1#7"
     // "vmess://<base64-json>"
   ],
   "2": [
-          "vless://25b377e5-ae6d-43a4-b0ed-afea87612ef9@172.64.231.232:443?encryption=none&security=tls&sni=shrim.erfanfamily.ir&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=shrim.erfanfamily.ir&path=%2FeyJqdW5rIjoiNnJtaUl1N2UxeTNZIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560#8",
-          "vless://02b1ea62-173d-43df-a566-6f0f65536e23@wsabi.erfanhub.ir:443?encryption=none&security=tls&sni=urmydreams.wasmer.app&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=urmydreams.wasmer.app&path=%2F02b1ea62#9",
-          "vless://4f330c55-87b3-4092-af79-be498c37846c@164.90.176.31:443?encryption=none&security=tls&sni=wr031vlkvbilaorzh8wdvbntp4bmpjlq.a6rwa13k.workers.dev&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=wr031vlkvbilaorzh8wdvbntp4bmpjlq.a6rwa13k.workers.dev&path=%2FeyJqdW5rIjoiRDBFMGJiTEJSIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560#10",
+          "vless://0b6f55ce-2c36-453c-899c-89afcb2d7b6e@104.16.72.162:443?encryption=none&security=tls&sni=nalam.erfnmndi474.workers.dev&fp=random&insecure=0&allowInsecure=0&type=ws&host=nalam.erfnmndi474.workers.dev&path=%2Fgateway#8",
+          "vless://b56b8e9c-b338-4d42-87c0-35ce808f41eb@104.21.74.63:8443?encryption=none&security=tls&sni=gorbahh.erfanhub.ir&fp=random&insecure=0&allowInsecure=0&type=ws&host=gorbahh.erfanhub.ir&path=%2Fproxyip%3D23.94.103.194#9",
+          "vless://62200345-c1ab-490b-8765-a04f8fb66019@104.18.40.185:443?encryption=none&security=tls&sni=wvFi202vdOJ9OUUHKNpDIvCn7723ib60.ErFanMandI3030.WORkERs.deV&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=wvfi202vdoj9ouuhknpdivcn7723ib60.erfanmandi3030.workers.dev&path=%2FeyJqdW5rIjoiZXJsQ0dvVGFtaG9zTUxtIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560#10",
           "vless://d0053266-13a2-488c-adb4-c5eecbf9cb72@104.18.40.185:443?encryption=none&security=tls&sni=j3do-r0ai1srkyg52dpx4zcdvy5dh9hf.ridam68232.workers.dev&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=j3do-r0ai1srkyg52dpx4zcdvy5dh9hf.ridam68232.workers.dev&path=%2FeyJqdW5rIjoiTDV4N01iZnZmVlk2bWgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119%3Fed%3D2560#11",
           "vless://b56b8e9c-b338-4d42-87c0-35ce808f41eb@216.24.57.250:8443?encryption=none&security=tls&sni=gorbahh.erfanhub.ir&fp=random&insecure=0&allowInsecure=0&type=ws&host=gorbahh.erfanhub.ir&path=%2Fproxyip%3D185.92.183.102%2C147.90.26.93%2C81.90.17.57#12",
-          "vless://7bd180e8-1142-4387-93f5-03e8d750a896@wsabi.erfanhub.ir:443?encryption=none&security=tls&sni=test2145.wasmer.app&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=test2145.wasmer.app&path=%2F7bd180e8#13"
   ],
   "3": [
         "vless://25b377e5-ae6d-43a4-b0ed-afea87612ef9@185.162.228.202:443?encryption=none&security=tls&sni=shrim.erfanfamily.ir&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=shrim.erfanfamily.ir&path=%2FeyJqdW5rIjoiNnJtaUl1N2UxeTNZIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560#8",
@@ -252,7 +250,7 @@ function buildStream(node, withFragment) {
   }
   if (withFragment) {
     // همه outboundهای نودی از طریق این پروکسیِ fragment دایل می‌شن
-    s.sockopt.dialerProxy = "fragment";
+    s.sockopt.dialerProxy = "Irancell";
   }
   return s;
 }
@@ -269,7 +267,7 @@ function buildFullConfig(nodes, withFragment) {
       protocol: "freedom",
       settings: {
         // Fragment settings (TLS Hello fragmentation)
-        fragment: { packets: "1-1", length: "100-200", interval: "20-30" },
+        fragment: { packets: "tlshello", length: "1", interval: "0" },
         domainStrategy: "UseIPv4v6"
       }
     });
