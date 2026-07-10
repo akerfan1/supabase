@@ -1,4 +1,4 @@
-// Deno / Supabase Edge Function
+/// Deno / Supabase Edge Function
 Deno.serve(async (request) => {
   const url = new URL(request.url);
   const uuidKey = url.searchParams.get("uuid") || "";
