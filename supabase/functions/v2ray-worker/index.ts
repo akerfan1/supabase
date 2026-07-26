@@ -47,7 +47,7 @@ const serverGroups = {
           "vless://5f99fbcc-bac8-44f0-9f33-fcb9fecfd326@198.41.204.141:443?encryption=none&security=tls&sni=test5000.erfanfamily2.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test5000.erfanfamily2.ir&path=%2FeyJqdW5rIjoiRlV2bnBzS09yNVZLIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560#2",
           "vless://02b1ea62-173d-43df-a566-6f0f65536e23@172.64.75.10:443?encryption=none&security=tls&sni=hawm.erfanfamily2.ir&fp=random&alpn=h3%2Ch2%2Chttp%2F1.1&insecure=0&allowInsecure=0&type=ws&host=hawm.erfanfamily2.ir&path=%2F%3Fed%3D2048#3",
           "vless://14371dd4-9ba9-4e3a-88ad-b1eb9569f154@104.27.0.194:443?encryption=none&security=tls&sni=dJt8n4DkF87z6QD1Wy6S.RiDAm68232.worKErS.dEv&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=djt8n4dkf87z6qd1wy6s.ridam68232.workers.dev&path=%2Fvl%2FJpMMgNI2wq0KfjVL7cga%3Fed%3D2560#4", 
-          "vless://19128d06-dfb1-43d0-b091-19ae46c265ac@104.27.119.28:443?encryption=none&security=tls&sni=dsad4073.v6qnd9c1.workers.dev&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=dsad4073.v6qnd9c1.workers.dev&path=%2Fmarzban-node-production-7a67.up.railway.app%2Fvless#5",
+          "vless://3820aab5-ffaf-43b7-8741-af720c6690a4@104.27.119.28:443?encryption=none&security=tls&sni=dsad4073.v6qnd9c1.workers.dev&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=dsad4073.v6qnd9c1.workers.dev&path=%2F31-76-252-48.sslip.io%2Fyt#5",
     // "vmess://<base64-json>"
   ],
   "2": [
@@ -55,7 +55,7 @@ const serverGroups = {
           "vless://b56b8e9c-b338-4d42-87c0-35ce808f41eb@104.21.74.63:8443?encryption=none&security=tls&sni=gorbahh.erfanhub.ir&fp=random&insecure=0&allowInsecure=0&type=ws&host=gorbahh.erfanhub.ir&path=%2Fproxyip%3D23.94.103.194#7",
           "vless://62200345-c1ab-490b-8765-a04f8fb66019@104.18.40.185:443?encryption=none&security=tls&sni=wvFi202vdOJ9OUUHKNpDIvCn7723ib60.ErFanMandI3030.WORkERs.deV&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=wvfi202vdoj9ouuhknpdivcn7723ib60.erfanmandi3030.workers.dev&path=%2FeyJqdW5rIjoiZXJsQ0dvVGFtaG9zTUxtIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560#8",
           "vless://2fdbf44a-0d36-426b-80de-b5104940f4e4@104.27.0.194:443?encryption=none&security=tls&sni=neon-path-pixel-1e06a1.erfnmndi474.workers.dev&fp=chrome&insecure=0&allowInsecure=0&type=ws&host=neon-path-pixel-1e06a1.erfnmndi474.workers.dev&path=%2F#9",
-          "vless://5c9c1907-3e66-415e-943d-e7a432b40c1c@104.25.37.151:443?encryption=none&security=tls&sni=dsad4073.v6qnd9c1.workers.dev&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=dsad4073.v6qnd9c1.workers.dev&path=%2F3x-ui-production-f8f6.up.railway.app%2Fin1#10",
+          "vless://521e0286-5bf2-4f87-814f-3928aa00a6c3@104.25.37.151:443?encryption=none&security=tls&sni=dsad4073.v6qnd9c1.workers.dev&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=dsad4073.v6qnd9c1.workers.dev&path=%2Ffree5.playon.ir%2Ffc-IUogfnggoAwFApwkOKpyK00h#10",
   ],
   "3": [
       "vless://14e28b36-9a4d-40a4-9aff-fb63163c74f4@104.16.73.110:443?encryption=none&security=tls&sni=test1200.erfanhub.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test1200.erfanhub.ir&path=%2Fpyip%3D178.156.139.174#8",
