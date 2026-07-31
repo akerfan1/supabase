@@ -1,11 +1,9 @@
-// Cloudflare Worker — Xray dynamic best-ping (every 30s) + Fragment
-// Output: JSON array with two full configs so v2rayN imports two separate profiles
+// Cloudflare Worker — Xray dynamic best-ping (every 30s) + Fragment + Beta (finalMask)
+// Output: JSON array with three full configs
 // Routes:
-//   /?uuid=1            -> [ LoadBalance(auto bestPing/30s), Fragment(auto bestPing/30s) ]
+//   /?uuid=1            -> [ LoadBalance, Irancell (Fragment), Beta (finalMask) ]
 //   /?uuid=1&view=sub   -> v2rayN/NG subscription (links base64; raw nodes)
-// Note: "best" انتخاب در خود Xray انجام می‌شود (observatory + leastPing)، نه در Worker.
 
-// Deno / Supabase Edge Function
 Deno.serve(async (request) => {
   const url = new URL(request.url);
   const uuidKey = url.searchParams.get("uuid") || "";
@@ -28,11 +26,16 @@ Deno.serve(async (request) => {
     return new Response(b64, { headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store" } });
   }
 
-  // Build two full configs with dynamic leastPing every 30s
-  const configLB = buildFullConfig(nodes, /*withFragment*/ false);
-  const configFragment = buildFullConfig(nodes, /*withFragment*/ true);
+  // 1. Config LB (بهترین سرعت) - دست‌نخورده
+  const configLB = buildFullConfig(nodes, { type: "none", remarks: "⚡best load {بهترین سرعت}⚡" });
+  
+  // 2. Config Irancell (فرگمنت معمولی) - دست‌نخورده
+  const configFragment = buildFullConfig(nodes, { type: "fragment", remarks: "Irancell" });
 
-    return new Response(JSON.stringify([configLB, configFragment], null, 2), {
+  // 3. Config Beta (تنظیمات finalMask + cipherSuites + unsafe - با حفظ IP اصلی VLESS)
+  const configBeta = buildFullConfig(nodes, { type: "finalMask", remarks: "Beta" });
+
+  return new Response(JSON.stringify([configLB, configFragment, configBeta], null, 2), {
     headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" }
   });
 });
@@ -151,7 +154,6 @@ function safeTag(s) {
 }
 
 function parseLink(link) {
-  // VLESS / Trojan (URL) or VMess (vmess://<b64 json>)
   if (typeof link !== "string") return null;
 
   if (link.startsWith("vmess://")) {
@@ -241,20 +243,21 @@ function decodeBase64ToUtf8(b64) {
 /* ================
    Builders
    ================ */
-function buildOutbound(node, idx, withFragment) {
+function buildOutbound(node, idx, mode) {
   const t = safeTag(node.tag);
   const tag = `node-${idx}-${t}`;
+
   const base = {
     tag,
     protocol: node.protocol,
-    streamSettings: buildStream(node, withFragment)
+    streamSettings: buildStream(node, mode)
   };
 
   if (node.protocol === "vless") {
     base.settings = {
       vnext: [
         {
-          address: node.address,
+          address: node.address, // حفظ آی‌پی اصلی VLESS
           port: node.port,
           users: [{ id: node.uuid, encryption: "none", level: 8 }]
         }
@@ -278,7 +281,7 @@ function buildOutbound(node, idx, withFragment) {
   return base;
 }
 
-function buildStream(node, withFragment) {
+function buildStream(node, mode) {
   const s = {
     network: node.network,
     security: node.security === "tls" ? "tls" : "",
@@ -288,55 +291,89 @@ function buildStream(node, withFragment) {
   if (node.security === "tls") {
     s.tlsSettings = {
       allowInsecure: false,
-      fingerprint: node.fp || "randomized",
+      fingerprint: mode === "finalMask" ? "unsafe" : (node.fp || "randomized"),
       alpn: node.alpn || ["http/1.1"],
       serverName: node.sni || node.address
     };
 
+    // افزودن CipherSuites مخصوص کانفیگ Beta
+    if (mode === "finalMask") {
+      s.tlsSettings.cipherSuites = "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256";
+    }
+
     if (node.ech) {
-    s.tlsSettings.echSettings = {
-      enable: true,
-      config: node.ech
-    };
+      s.tlsSettings.echSettings = {
+        enable: true,
+        config: node.ech
+      };
+    }
   }
-}
   
   if (node.network === "ws") {
     s.wsSettings = { path: node.path || "/", headers: { Host: node.hostHeader || node.address } };
   }
-  if (withFragment) {
-    // همه outboundهای نودی از طریق این پروکسیِ fragment دایل می‌شن
+
+  if (mode === "fragment") {
     s.sockopt.dialerProxy = "fragment";
+  } else if (mode === "finalMask") {
+    s.sockopt.dialerProxy = "finalMask";
   }
+
   return s;
 }
 
-function buildFullConfig(nodes, withFragment) {
-  // بسازیم outboundها و لیست تگ‌ها برای بالانسر/observatory
-  const outbounds = nodes.map((n, i) => buildOutbound(n, i + 1, withFragment));
+function buildFullConfig(nodes, options) {
+  const { type, remarks } = options;
+  const outbounds = nodes.map((n, i) => buildOutbound(n, i + 1, type));
   const nodeTags = outbounds.map(o => o.tag);
 
-  // fragment outbound (فقط در کانفیگ fragment)
-  if (withFragment) {
+  if (type === "fragment") {
     outbounds.push({
       tag: "fragment",
       protocol: "freedom",
       settings: {
-        // Fragment settings (TLS Hello fragmentation)
         fragment: { packets: "tlshello", length: "1", interval: "0" },
         domainStrategy: "UseIPv4v6"
       }
     });
+  } else if (type === "finalMask") {
+    outbounds.push({
+      tag: "finalMask",
+      protocol: "freedom",
+      settings: {
+        domainStrategy: "UseIPv4v6",
+        finalMask: {
+          tcp: [
+            {
+              type: "fragment",
+              settings: {
+                packets: "tlshello",
+                lengths: ["5", "94", "1"],
+                delays: ["0"],
+                maxSplit: "0"
+              }
+            },
+            {
+              type: "fragment",
+              settings: {
+                packets: "1-1",
+                lengths: ["109", "1"],
+                delays: ["1"],
+                maxSplit: "355"
+              }
+            }
+          ]
+        }
+      }
+    });
   }
 
-  // outbounds عمومی
   outbounds.push({ protocol: "dns", tag: "dns-out" });
   outbounds.push({ protocol: "freedom", tag: "direct", settings: { domainStrategy: "UseIP" } });
   outbounds.push({ protocol: "blackhole", tag: "block", settings: { response: { type: "http" } } });
 
-  // کانفیگ نهایی — با بالانسر leastLoad + burstObservatory هر 15 دقیقه
   const cfg = {
-    remarks: withFragment ? "Irancell" : "⚡best load {بهترین سرعت}⚡",
+    remarks: remarks,
     log: { loglevel: "warning" },
 
     dns: {
@@ -397,18 +434,16 @@ function buildFullConfig(nodes, withFragment) {
       system: { statsOutboundUplink: true, statsOutboundDownlink: true }
     },
 
-    // مهم: بالانسر leastLoad با انتخاب بین تمام nodeTags
     routing: {
       domainStrategy: "IPIfNonMatch",
       domainMatcher: "hybrid",
       rules: [
-        // تمام ترافیک از inbound ساکس به بالانسر میره
         { type: "field", inboundTag: ["socks-in", "http"], balancerTag: "auto" }
       ],
       balancers: [
         {
           tag: "auto",
-          selector: nodeTags,           // انتخاب بین تمام نودها
+          selector: nodeTags,
           strategy: { type: "leastLoad" }
         }
       ]
@@ -421,7 +456,6 @@ function buildFullConfig(nodes, withFragment) {
       services: ["StatsService"]
     },
 
-    // مهم: سنجش دوره‌ای پینگ هر 15 دقیقه روی همه نودها با burstObservatory
     burstObservatory: {
       pingConfig: {
         connectivity: "http://connectivitycheck.platform.hicloud.com/generate_204",
@@ -430,9 +464,17 @@ function buildFullConfig(nodes, withFragment) {
         sampling: 5,
         timeout: "3s"
       },
-      subjectSelector: nodeTags         // همین نودها سنجیده می‌شن
+      subjectSelector: nodeTags
     }
   };
+
+  if (type === "finalMask") {
+    cfg._coreCheck = {
+      featureRequired: "finalMask",
+      compatibleApp: "PattNG / Custom Xray Core",
+      warningNotice: "If your Xray core fails to load this config, please update your client to PattNG or a core supporting finalMask."
+    };
+  }
 
   return cfg;
 }
