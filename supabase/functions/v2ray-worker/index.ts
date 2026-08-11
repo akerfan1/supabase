@@ -50,7 +50,7 @@ const serverGroups = {
           "vless://5f99fbcc-bac8-44f0-9f33-fcb9fecfd326@104.18.152.249:443?encryption=none&security=tls&sni=test5000.erfanfamily2.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test5000.erfanfamily2.ir&path=%2FeyJqdW5rIjoiRlV2bnBzS09yNVZLIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560#2",
           "vless://02b1ea62-173d-43df-a566-6f0f65536e23@172.64.75.10:443?encryption=none&security=tls&sni=hawm.erfanfamily2.ir&fp=random&alpn=h3%2Ch2%2Chttp%2F1.1&insecure=0&allowInsecure=0&type=ws&host=hawm.erfanfamily2.ir&path=%2F%3Fed%3D2048#3",
           "vless://14371dd4-9ba9-4e3a-88ad-b1eb9569f154@91.206.71.164:443?encryption=none&security=tls&sni=dJt8n4DkF87z6QD1Wy6S.RiDAm68232.worKErS.dEv&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=djt8n4dkf87z6qd1wy6s.ridam68232.workers.dev&path=%2Fvl%2FJpMMgNI2wq0KfjVL7cga%3Fed%3D2560#4", 
-          "vless://9efe092e-e4ae-4601-bb89-169fcb3db39b@104.27.119.28:443?encryption=none&security=tls&sni=dsad4073.v6qnd9c1.workers.dev&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=dsad4073.v6qnd9c1.workers.dev&path=%2F150.241.101.218.fwqfw783rg2dad.website%2Fwebsocket#5",
+          "vless://378692bb-ab56-4120-8e8b-471ce71ecdbe@104.27.119.28:443?encryption=none&security=tls&sni=tesat.wodiwow334.workers.dev&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=tesat.wodiwow334.workers.dev&path=%2Ffr.connfull.org%3A9443%2Fstream#5",
     // "vmess://<base64-json>"
   ],
   "2": [
