@@ -60,6 +60,7 @@ const serverGroups = {
           "vless://a08bcfa1-f3b2-44f2-8899-d19ea09fe9d2@91.206.71.164:443?encryption=none&security=tls&sni=NuJ-VdqKRjD716Kg0CVB20.ErfnmnDI474.WoRkErs.Dev&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=nuj-vdqkrjd716kg0cvb20.erfnmndi474.workers.dev&path=%2Fvl%2FHkFiKqHSWqoacZM7R0daqmO%3Fed%3D2560#8",
           "trojan://%2CZ%268JdNdGb%2BRG%3BXV-U6W@104.16.75.207:443?security=tls&sni=IOwzJ-QEnL8r7zjVMU7KlXdctT2r.WoDIwow334.wOrKeRS.dEv&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=iowzj-qenl8r7zjvmu7klxdctt2r.wodiwow334.workers.dev&path=%2Ftr%2FazRMJyJ3O901Nvq6JNjsGYwJx0Jpl6%3Fed%3D2560#9",
           "vless://b585dc5e-55bf-4a8b-913a-27c9ccac05c3@103.21.244.26:443?encryption=none&security=tls&sni=tesat.wodiwow334.workers.dev&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=tesat.wodiwow334.workers.dev&path=%2Fbab-6.site%3A443%2Fvws%2F#%F0%9F%87%AB%F0%9F%87%B7",
+         "vless://I_Love_%F0%9F%87%B5%F0%9F%87%B8_sshOcean_e852@173.245.49.165:443?encryption=none&security=tls&sni=dsad4073.v6qnd9c1.workers.dev&insecure=0&allowInsecure=0&type=ws&host=dsad4073.v6qnd9c1.workers.dev&path=us1.v2less.online%3A443%2Fvless#%F0%9F%87%BA%F0%9F%87%B8",
   ],
   "3": [
        "vless://14e28b36-9a4d-40a4-9aff-fb63163c74f4@172.64.229.36:443?encryption=none&security=tls&sni=test1200.erfanhub.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test1200.erfanhub.ir&path=%2Fpyip%3D178.156.139.174#8",
