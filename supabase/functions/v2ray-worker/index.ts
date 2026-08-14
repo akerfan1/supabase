@@ -52,6 +52,7 @@ const serverGroups = {
           "vless://14371dd4-9ba9-4e3a-88ad-b1eb9569f154@91.206.71.164:443?encryption=none&security=tls&sni=dJt8n4DkF87z6QD1Wy6S.RiDAm68232.worKErS.dEv&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=djt8n4dkf87z6qd1wy6s.ridam68232.workers.dev&path=%2Fvl%2FJpMMgNI2wq0KfjVL7cga%3Fed%3D2560#4", 
           "vless://44a0e4f6-d0d5-439b-8f2e-b9730620d40e@104.27.119.28:443?encryption=none&security=tls&sni=tesat.wodiwow334.workers.dev&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=tesat.wodiwow334.workers.dev&path=ca5.taskflowhub.org%3A8443%2Frealtime#%F0%9F%87%A8%F0%9F%87%A6",
           "vless://f20167f8-c76a-494d-b76e-792d84e40222@104.27.119.28:443?encryption=none&security=tls&sni=dsad4073.v6qnd9c1.workers.dev&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=dsad4073.v6qnd9c1.workers.dev&path=de.connfull.org%3A9443%2Fstream#%F0%9F%87%A9%F0%9F%87%AA",
+          "vless://I_Love_%F0%9F%87%B5%F0%9F%87%B8_sshOcean_6245@91.206.71.164:443?encryption=none&security=tls&sni=dsad4073.v6qnd9c1.workers.dev&insecure=0&allowInsecure=0&type=ws&host=dsad4073.v6qnd9c1.workers.dev&path=nl1.v2less.online%3A443%2Fvless#%F0%9F%87%B3%F0%9F%87%B1",
     // "vmess://<base64-json>"
   ],
   "2": [
