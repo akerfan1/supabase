@@ -56,12 +56,12 @@ const serverGroups = {
     // "vmess://<base64-json>"
   ],
   "2": [
-          "vless://0b6f55ce-2c36-453c-899c-89afcb2d7b6e@104.16.72.162:443?encryption=none&security=tls&sni=nalam.erfnmndi474.workers.dev&fp=random&insecure=0&allowInsecure=0&type=ws&host=nalam.erfnmndi474.workers.dev&path=%2Fgateway#6",
+          "vless://7850157b-2560-435e-9695-c8a76c30f31f@188.114.96.3:443?encryption=none&security=tls&sni=first.corw.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=first.corw.ir&path=%2Fvl%2Fhn71UJzifNrP1a3UDm5mTmCS6hX1Gu%3Fed%3D2560#6",
           "vless://4199303a-8fd4-4e06-8799-7ccad9070671@104.21.74.63:443?encryption=none&security=tls&sni=tesr.erfanhub.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=tesr.erfanhub.ir&path=%2Fvl%2FUoGuCC2ItjAG6iE80ZSx%3Fed%3D2560#7",
           "vless://a08bcfa1-f3b2-44f2-8899-d19ea09fe9d2@104.20.18.167:443?encryption=none&security=tls&sni=NuJ-VdqKRjD716Kg0CVB20.ErfnmnDI474.WoRkErs.Dev&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=nuj-vdqkrjd716kg0cvb20.erfnmndi474.workers.dev&path=%2Fvl%2FHkFiKqHSWqoacZM7R0daqmO%3Fed%3D2560#8",
           "trojan://%2CZ%268JdNdGb%2BRG%3BXV-U6W@104.16.75.207:443?security=tls&sni=IOwzJ-QEnL8r7zjVMU7KlXdctT2r.WoDIwow334.wOrKeRS.dEv&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=iowzj-qenl8r7zjvmu7klxdctt2r.wodiwow334.workers.dev&path=%2Ftr%2FazRMJyJ3O901Nvq6JNjsGYwJx0Jpl6%3Fed%3D2560#9",
-          "vless://b585dc5e-55bf-4a8b-913a-27c9ccac05c3@172.64.75.10:443?encryption=none&security=tls&sni=tesat.wodiwow334.workers.dev&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=tesat.wodiwow334.workers.dev&path=%2Fbab-6.site%3A443%2Fvws%2F#%F0%9F%87%AB%F0%9F%87%B7",
-         "vless://I_Love_%F0%9F%87%B5%F0%9F%87%B8_sshOcean_e852@173.245.49.165:443?encryption=none&security=tls&sni=dsad4073.v6qnd9c1.workers.dev&insecure=0&allowInsecure=0&type=ws&host=dsad4073.v6qnd9c1.workers.dev&path=us1.v2less.online%3A443%2Fvless#%F0%9F%87%BA%F0%9F%87%B8",
+          "vless://b585dc5e-55bf-4a8b-913a-27c9ccac05c3@104.21.74.63:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=joke.corw.ir&path=%2Fbab-6.site%3A443%2Fvws%2F#%F0%9F%87%AB%F0%9F%87%B7",
+         "vless://I_Love_%F0%9F%87%B5%F0%9F%87%B8_sshOcean_e852@173.245.49.165:443?encryption=none&security=tls&sni=joke.corw.ir&insecure=0&allowInsecure=0&type=ws&host=joke.corw.ir&path=us1.v2less.online%3A443%2Fvless#%F0%9F%87%BA%F0%9F%87%B8",
   ],
   "3": [
        "vless://14e28b36-9a4d-40a4-9aff-fb63163c74f4@172.64.229.36:443?encryption=none&security=tls&sni=test1200.erfanhub.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test1200.erfanhub.ir&path=%2Fpyip%3D178.156.139.174#8",
