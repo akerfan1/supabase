@@ -56,7 +56,7 @@ const serverGroups = {
     // "vmess://<base64-json>"
   ],
   "2": [
-          "vless://7850157b-2560-435e-9695-c8a76c30f31f@188.114.96.3:443?encryption=none&security=tls&sni=first.corw.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=first.corw.ir&path=%2Fvl%2Fhn71UJzifNrP1a3UDm5mTmCS6hX1Gu%3Fed%3D2560#5",
+          "vless://7850157b-2560-435e-9695-c8a76c30f31f@188.114.96.3:443?encryption=none&security=tls&sni=first.corw.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=first.corw.ir&path=%2Fvl%2Fhn71UJzifNrP1a3UDm5mTmCS6hX1Gu%3Fed%3D2560#5",
           "vless://4199303a-8fd4-4e06-8799-7ccad9070671@104.21.74.63:443?encryption=none&security=tls&sni=tesr.erfanhub.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=tesr.erfanhub.ir&path=%2Fvl%2FUoGuCC2ItjAG6iE80ZSx%3Fed%3D2560#6",
           "vless://c43c59c6-5fdd-4109-8d8d-66578c026f02@104.20.18.167:443?encryption=none&security=tls&sni=IOWzj-QENl8R7zjVMU7klxdCtT2R.wOdiwOW334.WOrkerS.DEV&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&ech=taskulu.com%2Budp%3A%2F%2F1.1.1.1&type=ws&host=iowzj-qenl8r7zjvmu7klxdctt2r.wodiwow334.workers.dev&path=%2Fvl%2FCvYgbOvrFqG4ihZhsExQ%3Fed%3D2560#7",
           "vless://f1ebace6-6bf9-4fe8-8a42-5848975f52ea@45.67.215.67:443?encryption=none&security=tls&sni=fO9lJCOvpe4B394uDeO4g.pAGes.DEV&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&ech=taskulu.com%2Budp%3A%2F%2F1.1.1.1&type=ws&host=fo9ljcovpe4b394udeo4g.pages.dev&path=%2Fvl%2FgaHIeQrRumXAaZfvi7NDb9sy%3Fed%3D2560#8",
