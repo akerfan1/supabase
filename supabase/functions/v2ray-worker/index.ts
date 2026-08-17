@@ -448,38 +448,63 @@ function buildFullConfig(nodes, options) {
       system: { statsOutboundUplink: true, statsOutboundDownlink: true }
     },
 
-    routing: {
-      domainStrategy: "IPIfNonMatch",
-      domainMatcher: "hybrid",
-      rules: [
-        { type: "field", inboundTag: ["socks-in", "http"], balancerTag: "auto" }
-      ],
-      balancers: [
-        {
-          tag: "auto",
-          selector: nodeTags,
-          strategy: { type: "leastLoad" }
-        }
-      ]
-    },
+  routing: {
+  domainStrategy: "IPIfNonMatch",
+  domainMatcher: "hybrid",
 
-    stats: {},
-
-    api: {
-      tag: "api",
-      services: ["StatsService"]
-    },
-
-    burstObservatory: {
-      pingConfig: {
-        connectivity: "http://connectivitycheck.platform.hicloud.com/generate_204",
-        destination: "http://www.google.com/gen_204",
-        interval: "10m",
-        sampling: 5,
-        timeout: "3s"
-      },
-      subjectSelector: nodeTags
+  rules: [
+    {
+      type: "field",
+      inboundTag: ["socks-in", "http"],
+      balancerTag: "auto"
     }
+  ],
+
+  balancers: [
+    {
+      tag: "auto",
+      selector: nodeTags,
+
+      // انتخاب بر اساس وضعیت واقعی outboundها
+      strategy: {
+        type: "leastLoad"
+      }
+    }
+  ]
+},
+
+stats: {},
+
+api: {
+  tag: "api",
+  services: ["StatsService"]
+},
+
+// ================================
+// Fast Observatory
+// ================================
+// تست سریع‌تر و منظم‌تر سرورها
+burstObservatory: {
+  pingConfig: {
+    // آدرس سبک برای تست اتصال
+    connectivity: "http://connectivitycheck.platform.hicloud.com/generate_204",
+
+    // مقصد اصلی برای اندازه‌گیری تأخیر
+    destination: "http://www.google.com/gen_204",
+
+    // هر 30 ثانیه دوباره بررسی شود
+    interval: "30s",
+
+    // برای هر دوره چند نمونه گرفته شود
+    sampling: 5,
+
+    // سرورهای خیلی کند/قطع‌شده سریع حذف شوند
+    timeout: "2s"
+  },
+
+  // فقط outboundهای واقعی سرورها تست شوند
+  subjectSelector: nodeTags
+}
   };
 
   if (type === "finalMask") {
