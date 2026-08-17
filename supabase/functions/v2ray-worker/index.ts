@@ -51,7 +51,7 @@ const serverGroups = {
           "vless://02b1ea62-173d-43df-a566-6f0f65536e23@173.245.49.165:443?encryption=none&security=tls&sni=hawm.erfanfamily2.ir&fp=random&alpn=h3%2Ch2%2Chttp%2F1.1&insecure=0&allowInsecure=0&type=ws&host=hawm.erfanfamily2.ir&path=%2F%3Fed%3D2048#3",
           "vless://292032c7-15a3-4eaf-8d76-076c13832278@172.67.184.127:443?encryption=none&security=tls&sni=testu.erfanfamily.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=testu.erfanfamily.ir&path=%2Fvl%2FKIG6R8zHJxjnEPNXIeF7YLPOG9oN4%3Fed%3D2560#4",
           "vless://44a0e4f6-d0d5-439b-8f2e-b9730620d40e@104.27.119.28:443?encryption=none&security=tls&sni=lolsa.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=lolsa.erfanfamily2.ir&path=ca5.taskflowhub.org%3A8443%2Frealtime#%F0%9F%87%A8%F0%9F%87%A6",
-          "vless://f20167f8-c76a-494d-b76e-792d84e40222@104.27.119.28:443?encryption=none&security=tls&sni=lolsa.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=lolsa.erfanfamily2.ir&path=de.connfull.org%3A9443%2Fstream#%F0%9F%87%A9%F0%9F%87%AA",
+          "vless://44286632-97e3-11f1-9a1c-2bdba86c6679@45.67.215.67:443?encryption=none&security=tls&sni=lolsa.erfanfamily2.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=lolsa.erfanfamily2.ir&path=%2Fie1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AE%F0%9F%87%AA%20Ireland",
           "vless://I_Love_%F0%9F%87%B5%F0%9F%87%B8_sshOcean_6245@45.67.215.67:443?encryption=none&security=tls&sni=lolsa.erfanfamily2.ir&insecure=0&allowInsecure=0&type=ws&host=lolsa.erfanfamily2.ir&path=nl1.v2less.online%3A443%2Fvless#%F0%9F%87%B3%F0%9F%87%B1",
     // "vmess://<base64-json>"
   ],
