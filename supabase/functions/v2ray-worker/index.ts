@@ -155,7 +155,8 @@ const serverGroups = {
         "vless://1f619326-cd93-4d6b-aebe-e0b5f8831d02@104.27.119.28:443?encryption=none&security=tls&sni=lolsa.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=lolsa.erfanfamily2.ir&path=%2Fnl7.unlockvpn.online%3A8444%2Fapi%2Fv1%2Fdevices%2Fd5e8188467%2Ftelemetry#%F0%9F%87%B3%F0%9F%87%B1%20The%20Netherlands",
         "vless://08f84d53-e262-459c-a15a-26213e7a07c9@104.27.119.28:443?encryption=none&security=tls&sni=lolsa.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=lolsa.erfanfamily2.ir&path=%2Fbe2.wba-pn.ru%3A443%2F#%F0%9F%87%A7%F0%9F%87%AA%20Belgium",
         "vless://2edfd299-fd54-4056-9d79-3c99f19bdae1@104.27.119.28:443?encryption=none&security=tls&sni=lolsa.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=lolsa.erfanfamily2.ir&path=%2Fnode2.onepanel123.ru%3A2087%2Fde-vless-ws#%F0%9F%87%A9%F0%9F%87%AA%20Germany",
-        "vless://d051c366-9f76-11f1-b2ed-00163cbe6c97@104.27.119.28:443?encryption=none&security=tls&sni=lolsa.erfanfamily2.ir&type=ws&host=lolsa.erfanfamily2.ir&path=bh2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A7%F0%9F%87%AD%20Bahrain"        
+        "vless://d051c366-9f76-11f1-b2ed-00163cbe6c97@104.27.119.28:443?encryption=none&security=tls&sni=lolsa.erfanfamily2.ir&type=ws&host=lolsa.erfanfamily2.ir&path=bh2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A7%F0%9F%87%AD%20Bahrain",
+       "vless://6eca06e0-a12d-11f1-a184-dfeaacfbd75e@172.67.184.127:443?encryption=none&security=tls&sni=lolsa.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=lolsa.erfanfamily2.ir&path=ca1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A8%F0%9F%87%A6%20canada",
   ]
 };
 
