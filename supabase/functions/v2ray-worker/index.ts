@@ -61,7 +61,7 @@ const serverGroups = {
           "vless://c43c59c6-5fdd-4109-8d8d-66578c026f02@104.20.18.167:443?encryption=none&security=tls&sni=IOWzj-QENl8R7zjVMU7klxdCtT2R.wOdiwOW334.WOrkerS.DEV&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&ech=taskulu.com%2Budp%3A%2F%2F1.1.1.1&type=ws&host=iowzj-qenl8r7zjvmu7klxdctt2r.wodiwow334.workers.dev&path=%2Fvl%2FCvYgbOvrFqG4ihZhsExQ%3Fed%3D2560#7",
           "vless://02b1ea62-173d-43df-a566-6f0f65536e23@45.67.215.67:443?encryption=none&security=tls&sni=hola.erfanfamily.ir&fp=chrome&ech=cloudflare-ech.com%2Bhttps%3A%2F%2F8.8.8.8%2Fdns-query&type=ws&host=hola.erfanfamily.ir&path=%2F%3Fed%3D2048#8",
           "vless://b585dc5e-55bf-4a8b-913a-27c9ccac05c3@104.21.74.63:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=joke.corw.ir&path=%2Fbab-6.site%3A443%2Fvws%2F#%F0%9F%87%AB%F0%9F%87%B7",
-         "vless://924b826c-9f78-11f1-828b-7fe71eb40a64@172.67.184.127:443?encryption=none&security=tls&sni=lolsa.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=lolsa.erfanfamily2.ir&path=%2Fusa8.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%BA%F0%9F%87%B8%20United%20States",
+         "vless://924b826c-9f78-11f1-828b-7fe71eb40a64@172.67.184.127:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=%2Fusa8.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%BA%F0%9F%87%B8%20United%20States",
   ],
   "3": [
         "vless://14e28b36-9a4d-40a4-9aff-fb63163c74f4@172.64.229.36:443?encryption=none&security=tls&sni=test1200.erfanhub.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test1200.erfanhub.ir&path=%2Fpyip%3D178.156.139.174#8",
