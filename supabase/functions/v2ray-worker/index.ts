@@ -52,7 +52,7 @@ const serverGroups = {
           "vless://292032c7-15a3-4eaf-8d76-076c13832278@172.67.184.127:443?encryption=none&security=tls&sni=testu.erfanfamily.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=testu.erfanfamily.ir&path=%2Fvl%2FKIG6R8zHJxjnEPNXIeF7YLPOG9oN4%3Fed%3D2560#4",
           "vless://44a0e4f6-d0d5-439b-8f2e-b9730620d40e@104.27.119.28:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=yes.docom47457.workers.dev&path=ca5.taskflowhub.org%3A8443%2Frealtime#%F0%9F%87%A8%F0%9F%87%A6",
           "vless://8103e96c-9f79-11f1-84f5-6fe34b400539@172.67.184.127:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fie1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AE%F0%9F%87%AA%20Ireland",
-          "vless://40299eba-9f78-11f1-96ff-5b700e0d34f2@172.67.184.127:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fnl1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B3%F0%9F%87%B1%20The%20Netherlands",
+          "vless://991c0fb9-b1f1-47b2-8f4f-9f2257e94e04@yes.erfanfamily.ir:50955?encryption=none&security=none&type=ws&path=%2F#%F0%9F%87%B3%F0%9F%87%B1%20The%20Netherlands",
     // "vmess://<base64-json>"
   ],
   "2": [
