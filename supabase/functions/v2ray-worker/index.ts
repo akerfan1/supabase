@@ -44,15 +44,15 @@ Deno.serve(async (request) => {
    Server groups
    ================ */
 const serverGroups = {
-  "1": [
+ "1": [
     // نمونه‌ها — لینک‌های خودت را بگذار
           "vless://14e28b36-9a4d-40a4-9aff-fb63163c74f4@104.16.72.162:443?encryption=none&security=tls&sni=test1200.erfanhub.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test1200.erfanhub.ir&path=%2Fpyip%3D178.156.139.174#1",
           "vless://9facaeda-08cb-4032-98ef-208c65c18027@104.18.152.249:443?encryption=none&security=tls&sni=urmy.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=urmy.erfanfamily2.ir&path=%2Fvl%2F0LqYf21RNpzenuMzsU8d1JDVi%3Fed%3D2560#2",
           "vless://f1ebace6-6bf9-4fe8-8a42-5848975f52ea@104.18.152.249:443?encryption=none&security=tls&sni=fO9lJCOvpe4B394uDeO4g.pAGes.DEV&fp=chrome&alpn=http%2F1.1&ech=taskulu.com%2Budp%3A%2F%2F1.1.1.1&type=ws&host=fo9ljcovpe4b394udeo4g.pages.dev&path=%2Fvl%2FgaHIeQrRumXAaZfvi7NDb9sy%3Fed%3D2560#3",
           "vless://292032c7-15a3-4eaf-8d76-076c13832278@172.67.184.127:443?encryption=none&security=tls&sni=testu.erfanfamily.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=testu.erfanfamily.ir&path=%2Fvl%2FKIG6R8zHJxjnEPNXIeF7YLPOG9oN4%3Fed%3D2560#4",
           "vless://991c0fb9-b1f1-47b2-8f4f-9f2257e94e04@66.33.22.220:50955?encryption=none&security=none&type=ws&host=yes.erfanfamily.ir&path=%2Ftestw#%F0%9F%87%B3%F0%9F%87%B1%20The%20Netherlands",
-          "vless://8103e96c-9f79-11f1-84f5-6fe34b400539@172.67.184.127:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fie1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AE%F0%9F%87%AA%20Ireland",
           "vless://488d29c9-1447-4682-9bee-79c570124305@66.33.22.223:57780?encryption=none&security=none&type=ws&host=holawes.erfanhub.ir&path=%2Ftestmy#%F0%9F%87%BA%F0%9F%87%B8%20United%20States",
+          "vless://4f3b5cbd-cad2-408e-b017-7b23ad179edd@69.46.46.105:443?encryption=none&security=tls&sni=lola-node-production.up.railway.app&fp=random&alpn=h2&type=ws&host=lola-node-production.up.railway.app&path=%2Fvless#%F0%9F%87%B3%F0%9F%87%B1%20The%20Netherlands%202",
     // "vmess://<base64-json>"
   ],
   "2": [
