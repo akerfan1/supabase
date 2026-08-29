@@ -55,6 +55,7 @@ const serverGroups = {
           "vless://4f3b5cbd-cad2-408e-b017-7b23ad179edd@69.46.46.105:443?encryption=none&security=tls&sni=lola-node-production.up.railway.app&fp=random&alpn=h2&type=ws&host=lola-node-production.up.railway.app&path=%2Fvless#%F0%9F%87%B3%F0%9F%87%B1%20The%20Netherlands%202",
           "vless://d357fb6a-1a32-4a7e-8a1b-fb2fccdaf171@66.33.22.220:35903?encryption=none&security=none&type=tcp&headerType=none#raw%20railway",
           "vless://e632d034-b3ce-41fb-ae5e-719f2cc6fb3e@69.46.46.113:443?encryption=none&security=tls&sni=farzsaz-node-production.up.railway.app&fp=chrome&alpn=h3%2Ch2%2Chttp%2F1.1&type=ws&host=farzsaz-node-production.up.railway.app&path=%2Fvless#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20East",
+          "vless://7812d9fb-ee0f-4e5f-b346-f1d596201a19@69.46.46.113:443?encryption=none&security=tls&sni=sohrabs.up.railway.app&fp=chrome&alpn=h3%2Ch2%2Chttp%2F1.1&type=httpupgrade&host=sohrabs.up.railway.app&path=%2Fvless#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20East%202",
     // "vmess://<base64-json>"
   ],
   "2": [
