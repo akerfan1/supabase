@@ -64,6 +64,7 @@ const serverGroups = {
         "vless://02b1ea62-173d-43df-a566-6f0f65536e23@172.67.163.166:443?encryption=none&security=tls&sni=hola.erfanfamily.ir&fp=random&type=ws&host=hola.erfanfamily.ir&path=%2F%3Fed%3D2048#8",
         "vless://57ed544c-9260-43e8-8354-f626bd44f58b@188.114.96.3:443?encryption=none&security=tls&sni=joke.corw.ir&fp=random&alpn=h3%2Ch2%2Chttp%2F1.1&type=ws&host=joke.corw.ir&path=welldone-node-production.up.railway.app%3A443%2Fvless#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20East%202",
         "vless://67b30697-b51e-4ae6-a182-161e4a05e8a0@188.114.96.1:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=h3%2Ch2%2Chttp%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=mediumrare-node-production.up.railway.app%3A443%2Fvless#%F0%9F%87%B3%F0%9F%87%B1%20The%20Netherlands%203",
+        "vless://8355736e-a5f2-11f1-9935-333cbb7a5ff1@172.67.163.166:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=%2Fbg2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A7%F0%9F%87%AC%20Bulgaria",
   ],
   "3": [
         "vless://14e28b36-9a4d-40a4-9aff-fb63163c74f4@172.64.229.36:443?encryption=none&security=tls&sni=test1200.erfanhub.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test1200.erfanhub.ir&path=%2Fpyip%3D178.156.139.174#8",
