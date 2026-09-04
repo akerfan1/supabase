@@ -46,8 +46,8 @@ Deno.serve(async (request) => {
 const serverGroups = {
  "1": [
     // نمونه‌ها — لینک‌های خودت را بگذار
-            "vless://14e28b36-9a4d-40a4-9aff-fb63163c74f4@188.114.96.3:443?encryption=none&security=tls&sni=test1200.erfanhub.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test1200.erfanhub.ir&path=%2Fpyip%3D178.156.139.174#1",
-          "vless://9facaeda-08cb-4032-98ef-208c65c18027@104.18.152.249:443?encryption=none&security=tls&sni=urmy.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=urmy.erfanfamily2.ir&path=%2Fvl%2F0LqYf21RNpzenuMzsU8d1JDVi%3Fed%3D2560#2",
+            "vless://14e28b36-9a4d-40a4-9aff-fb63163c74f4@104.16.72.162:443?encryption=none&security=tls&sni=test1200.erfanhub.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test1200.erfanhub.ir&path=%2Fpyip%3D178.156.139.174#1",
+          "vless://9facaeda-08cb-4032-98ef-208c65c18027@188.114.96.3:443?encryption=none&security=tls&sni=urmy.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=urmy.erfanfamily2.ir&path=%2Fvl%2F0LqYf21RNpzenuMzsU8d1JDVi%3Fed%3D2560#2",
           "vless://f1ebace6-6bf9-4fe8-8a42-5848975f52ea@104.18.152.249:443?encryption=none&security=tls&sni=fO9lJCOvpe4B394uDeO4g.pAGes.DEV&fp=chrome&alpn=http%2F1.1&ech=taskulu.com%2Budp%3A%2F%2F1.1.1.1&type=ws&host=fo9ljcovpe4b394udeo4g.pages.dev&path=%2Fvl%2FgaHIeQrRumXAaZfvi7NDb9sy%3Fed%3D2560#3",
           "vless://292032c7-15a3-4eaf-8d76-076c13832278@172.67.184.127:443?encryption=none&security=tls&sni=testu.erfanfamily.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=testu.erfanfamily.ir&path=%2Fvl%2FKIG6R8zHJxjnEPNXIeF7YLPOG9oN4%3Fed%3D2560#4",
           "vless://1e08ec7a-d612-4cfd-8860-b9a4210eb34a@66.33.22.223:57780?encryption=none&security=reality&sni=www.speedtest.net&fp=chrome&pbk=MZk1twtuzERF0hokztu27vRf8MgmELXkKrsrAQY1dTs&sid=a953f377ab00e115&spx=%2F9b6785e2423c139&type=tcp&headerType=none#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20West",
