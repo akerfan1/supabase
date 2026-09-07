@@ -45,18 +45,16 @@ Deno.serve(async (request) => {
    ================ */
 const serverGroups = {
  "1": [
-    // نمونه‌ها — لینک‌های خودت را بگذار
-            "vless://14e28b36-9a4d-40a4-9aff-fb63163c74f4@104.16.72.162:443?encryption=none&security=tls&sni=test1200.erfanhub.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test1200.erfanhub.ir&path=%2Fpyip%3D178.156.139.174#1",
-          "vless://9facaeda-08cb-4032-98ef-208c65c18027@188.114.96.3:443?encryption=none&security=tls&sni=urmy.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=urmy.erfanfamily2.ir&path=%2Fvl%2F0LqYf21RNpzenuMzsU8d1JDVi%3Fed%3D2560#2",
-          "vless://f1ebace6-6bf9-4fe8-8a42-5848975f52ea@104.18.152.249:443?encryption=none&security=tls&sni=fO9lJCOvpe4B394uDeO4g.pAGes.DEV&fp=chrome&alpn=http%2F1.1&ech=taskulu.com%2Budp%3A%2F%2F1.1.1.1&type=ws&host=fo9ljcovpe4b394udeo4g.pages.dev&path=%2Fvl%2FgaHIeQrRumXAaZfvi7NDb9sy%3Fed%3D2560#3",
-          "vless://292032c7-15a3-4eaf-8d76-076c13832278@172.67.184.127:443?encryption=none&security=tls&sni=testu.erfanfamily.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=testu.erfanfamily.ir&path=%2Fvl%2FKIG6R8zHJxjnEPNXIeF7YLPOG9oN4%3Fed%3D2560#4",
-          "vless://a91dc4ef-84f8-4e73-a134-7c20dff13e7d@69.46.46.18:443?encryption=none&security=tls&sni=polland-production.up.railway.app&fp=chrome&alpn=http%2F1.1&type=ws&host=polland-production.up.railway.app&path=%2Fws%2Fa91dc4ef-84f8-4e73-a134-7c20dff13e7d#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20West",
-          "vless://4f3b5cbd-cad2-408e-b017-7b23ad179edd@69.46.46.7:443?encryption=none&security=tls&sni=lola-node-production.up.railway.app&fp=random&alpn=h2&type=ws&host=lola-node-production.up.railway.app&path=%2Fvless#%F0%9F%87%B3%F0%9F%87%B1%20The%20Netherlands%202",
-          "vless://95aff35e-a5f2-11f1-b546-d3064527b3da@188.114.96.1:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fee2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AA%F0%9F%87%AA%20Estonia%202",
-          "vless://7812d9fb-ee0f-4e5f-b346-f1d596201a19@69.46.46.18:443?encryption=none&security=tls&sni=sohrabs.up.railway.app&fp=chrome&alpn=h3%2Ch2%2Chttp%2F1.1&type=ws&host=sohrabs.up.railway.app&path=%2Frefuse#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20East%202",
-          "vless://256bfe46-a5f0-11f1-a65c-ef77b3ab429e@188.114.96.1:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Ftr2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B9%F0%9F%87%B7%20T%C3%BCrkiye",
-    // "vmess://<base64-json>"
-  ],
+        "vless://14e28b36-9a4d-40a4-9aff-fb63163c74f4@104.16.72.162:443?encryption=none&security=tls&sni=test1200.erfanhub.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test1200.erfanhub.ir&path=%2Fpyip%3D178.156.139.174#1",
+        "vless://9facaeda-08cb-4032-98ef-208c65c18027@188.114.96.3:443?encryption=none&security=tls&sni=urmy.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=urmy.erfanfamily2.ir&path=%2Fvl%2F0LqYf21RNpzenuMzsU8d1JDVi%3Fed%3D2560#2",
+        "vless://f1ebace6-6bf9-4fe8-8a42-5848975f52ea@104.18.152.249:443?encryption=none&security=tls&sni=fO9lJCOvpe4B394uDeO4g.pAGes.DEV&fp=chrome&alpn=http%2F1.1&ech=taskulu.com%2Budp%3A%2F%2F1.1.1.1&type=ws&host=fo9ljcovpe4b394udeo4g.pages.dev&path=%2Fvl%2FgaHIeQrRumXAaZfvi7NDb9sy%3Fed%3D2560#3",
+        "vless://292032c7-15a3-4eaf-8d76-076c13832278@172.67.184.127:443?encryption=none&security=tls&sni=testu.erfanfamily.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=testu.erfanfamily.ir&path=%2Fvl%2FKIG6R8zHJxjnEPNXIeF7YLPOG9oN4%3Fed%3D2560#4",
+        "vless://a91dc4ef-84f8-4e73-a134-7c20dff13e7d@69.46.46.18:443?encryption=none&security=tls&sni=polland-production.up.railway.app&fp=chrome&alpn=http%2F1.1&type=ws&host=polland-production.up.railway.app&path=%2Fws%2Fa91dc4ef-84f8-4e73-a134-7c20dff13e7d#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20West",
+        "vless://4f3b5cbd-cad2-408e-b017-7b23ad179edd@69.46.46.7:443?encryption=none&security=tls&sni=lola-node-production.up.railway.app&fp=random&alpn=h2&type=ws&host=lola-node-production.up.railway.app&path=%2Fvless#%F0%9F%87%B3%F0%9F%87%B1%20The%20Netherlands%202",
+        "vless://7812d9fb-ee0f-4e5f-b346-f1d596201a19@69.46.46.18:443?encryption=none&security=tls&sni=sohrabs.up.railway.app&fp=chrome&alpn=h3%2Ch2%2Chttp%2F1.1&type=ws&host=sohrabs.up.railway.app&path=%2Frefuse#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20East%202",
+        "vless://256bfe46-a5f0-11f1-a65c-ef77b3ab429e@188.114.96.1:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Ftr2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B9%F0%9F%87%B7%20T%C3%BCrkiye",
+        "vless://70ec69c2-a9ca-11f1-a6e8-8725474fdbc7@188.114.96.1:443?path=%2Fcz2.vpnjantit.com%3A10002%2Fvpnjantit&security=tls&alpn=http%2F1.1&encryption=none&insecure=0&host=yes.docom47457.workers.dev&fp=chrome&type=ws&allowInsecure=0&sni=yes.docom47457.workers.dev#%F0%9F%87%A8%F0%9F%87%BF%20czech%20republic"
+      ],
   "2": [
         "vless://7850157b-2560-435e-9695-c8a76c30f31f@188.114.96.3:443?encryption=none&security=tls&sni=first.corw.ir&fp=random&alpn=http%2F1.1&type=ws&host=first.corw.ir&path=%2Fvl%2Fhn71UJzifNrP1a3UDm5mTmCS6hX1Gu%3Fed%3D2560#5",
         "vless://4199303a-8fd4-4e06-8799-7ccad9070671@104.21.74.63:443?encryption=none&security=tls&sni=tesr.erfanhub.ir&fp=random&alpn=http%2F1.1&type=ws&host=tesr.erfanhub.ir&path=%2Fvl%2FUoGuCC2ItjAG6iE80ZSx%3Fed%3D2560#6",
