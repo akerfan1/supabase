@@ -53,7 +53,7 @@ const serverGroups = {
         "vless://4f3b5cbd-cad2-408e-b017-7b23ad179edd@69.46.46.18:443?encryption=none&security=tls&sni=lola-node-production.up.railway.app&fp=random&alpn=h2&type=ws&host=lola-node-production.up.railway.app&path=%2Fvless#%F0%9F%87%B3%F0%9F%87%B1%20The%20Netherlands%202",
         "vless://7812d9fb-ee0f-4e5f-b346-f1d596201a19@69.46.46.18:443?encryption=none&security=tls&sni=sohrabs.up.railway.app&fp=chrome&alpn=h3%2Ch2%2Chttp%2F1.1&type=ws&host=sohrabs.up.railway.app&path=%2Frefuse#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20East%202",
         "vless://70ec69c2-a9ca-11f1-a6e8-8725474fdbc7@104.20.18.167:443?encryption=none&security=tls&sni=lokan.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=lokan.erfanfamily2.ir&path=%2Fcz2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A8%F0%9F%87%BF%20czech%20republic",
-        "vless://380d5bc8-a5ee-11f1-8d7d-2bcfdf1f2abe@104.20.18.167:443?encryption=none&security=tls&sni=lokan.erfanfamily2.ir&type=ws&host=lokan.erfanfamily2.ir&path=fr3.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AB%F0%9F%87%B7%20France%205"
+        "vless://d471d072-a9ca-11f1-8c67-abcd45721c06@104.20.18.167:443?encryption=none&security=tls&sni=lokan.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=lokan.erfanfamily2.ir&path=%2Fdk1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A9%F0%9F%87%B0%20Denmark"
       ],
   "2": [
         "vless://7850157b-2560-435e-9695-c8a76c30f31f@172.66.44.200:443?encryption=none&security=tls&sni=first.corw.ir&fp=random&alpn=http%2F1.1&type=ws&host=first.corw.ir&path=%2Fvl%2Fhn71UJzifNrP1a3UDm5mTmCS6hX1Gu%3Fed%3D2560#5",
