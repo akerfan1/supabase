@@ -61,8 +61,8 @@ const serverGroups = {
         "vless://02b1ea62-173d-43df-a566-6f0f65536e23@172.67.163.166:443?encryption=none&security=tls&sni=hola.erfanfamily.ir&fp=random&type=ws&host=hola.erfanfamily.ir&path=%2F%3Fed%3D2048#8",
         "vless://09b9c410-a9cb-11f1-826e-27b0708dab9b@172.66.47.176:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=%2Ffr2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AB%F0%9F%87%B7%20France%202",
         "vless://2c897172-a9c9-11f1-9898-0016c03a82e2@172.66.44.200:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=%2Flu1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B1%F0%9F%87%BA%20Luxembourg",
-        "vless://044e1200-adfa-11f1-8316-e32404299470@104.20.18.167:443?encryption=none&security=tls&sni=lokan.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=lokan.erfanfamily2.ir&path=%2Fse1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B8%F0%9F%87%AA%20Sweden",
-        "vless://c3703726-adfa-11f1-891e-73faf013285f@104.20.18.167:443?encryption=none&security=tls&sni=lokan.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=lokan.erfanfamily2.ir&path=%2Fgr2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A9%F0%9F%87%AA%20Germany"
+        "vless://c3703726-adfa-11f1-891e-73faf013285f@104.20.18.167:443?encryption=none&security=tls&sni=lokan.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=lokan.erfanfamily2.ir&path=%2Fgr2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A9%F0%9F%87%AA%20Germany",
+        "vless://044e1200-adfa-11f1-8316-e32404299470@104.20.18.167:443?encryption=none&security=tls&sni=lokan.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=lokan.erfanfamily2.ir&path=%2Fse1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B8%F0%9F%87%AA%20Sweden"
       ],
   "3": [
         "vless://14e28b36-9a4d-40a4-9aff-fb63163c74f4@172.64.229.36:443?encryption=none&security=tls&sni=test1200.erfanhub.ir&fp=random&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=test1200.erfanhub.ir&path=%2Fpyip%3D178.156.139.174#8",
