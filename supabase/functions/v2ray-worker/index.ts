@@ -164,9 +164,6 @@ const serverGroups = {
         "vless://4073c950-adfa-11f1-a3c7-5b97971f3a8b@104.20.18.167:443?encryption=none&security=tls&sni=lokan.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=lokan.erfanfamily2.ir&path=%2Fru3.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B7%F0%9F%87%BA%20Russia",
         "vless://c3703726-adfa-11f1-891e-73faf013285f@104.20.18.167:443?encryption=none&security=tls&sni=lokan.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=lokan.erfanfamily2.ir&path=%2Fgr2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A9%F0%9F%87%AA%20Germany",
         "vless://a1399465-94d8-4f02-a0ad-df6cdb7b8823@104.20.18.167:443?encryption=none&security=tls&sni=lokan.erfanfamily2.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=lokan.erfanfamily2.ir&path=grimness-backlogs.cdn-content.com%3A443%2Fws#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20north%20%201"
-      ],
-  "16": [
-
       ]
 
 };
