@@ -158,7 +158,7 @@ Deno.serve(async (request) => {
 // Server groups
 // ============================================================
 
-const serverGroups: Record<string, string[]> = {
+const serverGroups = {
 
   "1": [
     "vless://50414e45-4c5f-5a45-5553-3448ea55ea1a@104.25.102.179:443?encryption=none&security=tls&sni=ezzukteyue1s.akerfan180.workers.dev&fp=unsafe&type=ws&host=ezzukteyue1s.akerfan180.workers.dev&path=%2Fstream%2FPANEL_ZEUS%2F3448ea55ea1a#1",
