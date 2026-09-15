@@ -85,11 +85,10 @@ Deno.serve(async (request) => {
   // Subscription view
   // ============================================================
 
-  if (view === "sub") {
+ if (view === "sub") {
 
-    const b64 = toBase64Utf8(
-      randomizedLinks.join("\n")
-    );
+    const subConfigs = JSON.stringify([configLB, configBeta], null, 2);
+    const b64 = toBase64Utf8(subConfigs);
 
     return new Response(b64, {
       headers: {
@@ -120,7 +119,7 @@ Deno.serve(async (request) => {
   const configFragment = buildFullConfig(
     nodes,
     {
-      type: "none",
+      type: "fragment",
       remarks: "Irancell"
     }
   );
