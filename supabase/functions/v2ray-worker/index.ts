@@ -66,38 +66,17 @@ Deno.serve(async (request) => {
   // دقیقاً از همان IP تصادفی استفاده کنند.
   // ============================================================
 
-  const randomizedLinks = links.map((link) => {
-    return randomizeVlessAddress(link);
-  });
-
-
+  // ============================================================
   // Parse links to nodes
- const nodes = randomizedLinks
-  .map(parseLink)
-  .filter((node) => node !== null);
+  // ============================================================
+
+  const nodes = randomizedLinks
+    .map(parseLink)
+    .filter((node) => node !== null);
 
   if (!nodes.length) {
     return new Response("No valid nodes", { status: 422 });
   }
-
-
-  // ============================================================
-  // Subscription view
-  // ============================================================
-
- if (view === "sub") {
-
-    const subConfigs = JSON.stringify([configLB, configBeta], null, 2);
-    const b64 = toBase64Utf8(subConfigs);
-
-    return new Response(b64, {
-      headers: {
-        "content-type": "text/plain; charset=utf-8",
-        "cache-control": "no-store"
-      }
-    });
-  }
-
 
   // ============================================================
   // 1. Config LB
@@ -111,20 +90,6 @@ Deno.serve(async (request) => {
     }
   );
 
-
-  // ============================================================
-  // 2. Config Fragment
-  // ============================================================
-
-  const configFragment = buildFullConfig(
-    nodes,
-    {
-      type: "fragment",
-      remarks: "Irancell"
-    }
-  );
-
-
   // ============================================================
   // 3. Config Beta
   // ============================================================
@@ -137,12 +102,31 @@ Deno.serve(async (request) => {
     }
   );
 
+  // ============================================================
+  // Subscription view (فقط LB و Beta)
+  // ============================================================
+
+  if (view === "sub") {
+
+    const subConfigs = JSON.stringify([configLB, configBeta], null, 2);
+    const b64 = toBase64Utf8(subConfigs);
+
+    return new Response(b64, {
+      headers: {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
+
+  // ============================================================
+  // JSON Output (خروجی مرورگر)
+  // ============================================================
 
   return new Response(
     JSON.stringify(
       [
         configLB,
-        configFragment,
         configBeta
       ],
       null,
@@ -155,9 +139,6 @@ Deno.serve(async (request) => {
       }
     }
   );
-});
-
-
 // ============================================================
 // Server groups
 // ============================================================
