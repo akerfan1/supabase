@@ -189,11 +189,6 @@ const serverGroups = {
   ],
 
 
-  "3": [
-
-      ],
-
-
   "4": [
     "vless://0b6f55ce-2c36-453c-899c-89afcb2d7b6e@104.16.75.207:443?encryption=none&security=tls&sni=nalam.erfnmndi474.workers.dev&fp=random&insecure=0&allowInsecure=0&type=ws&host=nalam.erfnmndi474.workers.dev&path=%2Fgateway#8",
     "vless://0b6f55ce-2c36-453c-899c-89afcb2d7b6e@104.18.152.249:443?encryption=none&security=tls&sni=nalam.erfnmndi474.workers.dev&fp=random&insecure=0&allowInsecure=0&type=ws&host=nalam.erfnmndi474.workers.dev&path=%2Fgateway#9",
