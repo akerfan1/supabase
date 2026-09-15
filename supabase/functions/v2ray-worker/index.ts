@@ -143,7 +143,6 @@ Deno.serve(async (request) => {
     JSON.stringify(
       [
         configLB,
-        configFragment,
         configBeta
       ],
       null,
