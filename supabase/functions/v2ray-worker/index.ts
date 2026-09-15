@@ -120,7 +120,7 @@ Deno.serve(async (request) => {
   const configFragment = buildFullConfig(
     nodes,
     {
-      type: "fragment",
+      type: "none",
       remarks: "Irancell"
     }
   );
