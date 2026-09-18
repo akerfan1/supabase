@@ -186,10 +186,10 @@ const serverGroups = {
         "vless://4199303a-8fd4-4e06-8799-7ccad9070671@172.66.47.176:443?encryption=none&security=tls&sni=tesr.erfanhub.ir&fp=random&alpn=http%2F1.1&type=ws&host=tesr.erfanhub.ir&path=%2Fvl%2FUoGuCC2ItjAG6iE80ZSx%3Fed%3D2560#6",
         "vless://c43c59c6-5fdd-4109-8d8d-66578c026f02@104.20.18.167:443?encryption=none&security=tls&sni=IOWzj-QENl8R7zjVMU7klxdCtT2R.wOdiwOW334.WOrkerS.DEV&fp=random&alpn=http%2F1.1&type=ws&host=iowzj-qenl8r7zjvmu7klxdctt2r.wodiwow334.workers.dev&path=%2Fvl%2FCvYgbOvrFqG4ihZhsExQ%3Fed%3D2560#7",
         "vless://02b1ea62-173d-43df-a566-6f0f65536e23@172.67.163.166:443?encryption=none&security=tls&sni=hola.erfanfamily.ir&fp=random&type=ws&host=hola.erfanfamily.ir&path=%2F%3Fed%3D2048#8",
-        "vless://044e1200-adfa-11f1-8316-e32404299470@104.20.18.167:443?path=%2Fse1.vpnjantit.com%3A10002%2Fvpnjantit&security=tls&alpn=http%2F1.1&encryption=none&insecure=0&host=yes.docom47457.workers.dev&fp=chrome&type=ws&allowInsecure=0&sni=yes.docom47457.workers.dev#%F0%9F%87%B8%F0%9F%87%AA%20Sweden",
-        "vless://c3703726-adfa-11f1-891e-73faf013285f@104.20.18.167:443?path=%2Fgr2.vpnjantit.com%3A10002%2Fvpnjantit&security=tls&alpn=http%2F1.1&encryption=none&insecure=0&host=yes.docom47457.workers.dev&fp=chrome&type=ws&allowInsecure=0&sni=yes.docom47457.workers.dev#%F0%9F%87%A9%F0%9F%87%AA%20Germany",
         "vless://63a4c430-aecf-11f1-bc52-0b8165c38c2e@104.20.18.167:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=nl1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B3%F0%9F%87%B1%20%20Netherlands%201",
-        "vless://ef784d0c-b149-11f1-9ea2-070c697b6f59@104.20.18.167:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&type=ws&host=yes.docom47457.workers.dev&path=fr3.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AB%F0%9F%87%B7%20France%205"
+        "vless://ef784d0c-b149-11f1-9ea2-070c697b6f59@104.20.18.167:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&type=ws&host=yes.docom47457.workers.dev&path=fr3.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AB%F0%9F%87%B7%20France%205",
+        "vless://2eb343c0-b0fd-11f1-8ad0-9b7c140afdf5@104.19.41.171:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=fi2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AB%F0%9F%87%AE%20Finland%202",
+        "vless://c177cf84-b281-11f1-a3fb-dff8a84a723f@104.25.206.186:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=be1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A7%F0%9F%87%AA%20Belgium"
       ],
 
 
