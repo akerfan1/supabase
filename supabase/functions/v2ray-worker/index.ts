@@ -217,7 +217,8 @@ const serverGroups = {
         "vless://9bdc2ef8-b3ff-11f1-bf6d-5f22c2c204de@104.18.114.234:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fgr2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A9%F0%9F%87%AA%20Germany%201",
         "vless://c937008a-b3ff-11f1-9d30-5f18a8623459@104.18.114.234:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fse1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B8%F0%9F%87%AA%20Sweden",
         "vless://fb5de916-b3ff-11f1-9753-739686dbc854@104.16.102.15:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fuk.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AC%F0%9F%87%A7%20United%20Kingdom",
-        "vless://80af5c3e-b401-11f1-8e3d-8bf09210bdd8@172.66.44.200:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=safari&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=usa6.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20east"
+        "vless://80af5c3e-b401-11f1-8e3d-8bf09210bdd8@172.66.44.200:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=safari&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=usa6.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20east",
+        "vless://8e405a67-52a5-fc28-df7e-3c7f949d055f@104.16.70.194:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fkolgerpanel-production.up.railway.app%3A443%2Fws%2F8e405a67-52a5-fc28-df7e-3c7f949d055f#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20east%202"
       ]
 
 };
