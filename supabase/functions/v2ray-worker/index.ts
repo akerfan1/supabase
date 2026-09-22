@@ -209,7 +209,8 @@ const serverGroups = {
         "vless://8e405a67-52a5-fc28-df7e-3c7f949d055f@104.16.70.194:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fkolgerpanel-production.up.railway.app%3A443%2Fws%2F8e405a67-52a5-fc28-df7e-3c7f949d055f#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20east%202",
         "vless://1e7cedac-b149-11f1-baef-af4c2e2a6fec@104.16.132.51:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fcz2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A8%F0%9F%87%BF%20czech%20republic",
         "vless://2065eb6a-b5da-11f1-bd09-2fe5b6e5c000@104.18.114.234:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fdk1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A9%F0%9F%87%B0%20Denmark",
-        { url: "vless://d75eff29-18c1-479d-9653-1ad52fecdfe4@69.46.46.91:443?encryption=none&security=tls&type=ws&host=daszsdpd.up.railway.app&path=%2Fws#railway", direct: true }
+        { url: "vless://d75eff29-18c1-479d-9653-1ad52fecdfe4@69.46.46.91:443?encryption=none&security=tls&type=ws&host=daszsdpd.up.railway.app&path=%2Fws#railway", direct: true },
+        { url: "vless://6e2b74d0-62e8-6fdd-8c13-b27803aaab9b@opfkdgsopsea.up.railway.app:443?mode=packet-up&path=%2Fxhttp-siz10%2Fpacket-up%2F6e2b74d0-62e8-6fdd-8c13-b27803aaab9b&security=tls&alpn=h2%2Chttp%2F1.1&encryption=none&insecure=0&host=opfkdgsopsea.up.railway.app&fp=chrome&type=xhttp&allowInsecure=0&sni=opfkdgsopsea.up.railway.app#united%20state%20xhttp", direct: true }
       ],
 
 
