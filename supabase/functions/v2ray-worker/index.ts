@@ -214,15 +214,16 @@ const serverGroups = {
 
 
   "2": [
-    "vless://7850157b-2560-435e-9695-c8a76c30f31f@172.66.44.200:443?encryption=none&security=tls&sni=first.corw.ir&fp=random&alpn=http%2F1.1&type=ws&host=first.corw.ir&path=%2Fvl%2Fhn71UJzifNrP1a3UDm5mTmCS6hX1Gu%3Fed%3D2560#5",
+        "vless://7850157b-2560-435e-9695-c8a76c30f31f@172.66.44.200:443?encryption=none&security=tls&sni=first.corw.ir&fp=random&alpn=http%2F1.1&type=ws&host=first.corw.ir&path=%2Fvl%2Fhn71UJzifNrP1a3UDm5mTmCS6hX1Gu%3Fed%3D2560#5",
         "vless://4199303a-8fd4-4e06-8799-7ccad9070671@172.66.47.176:443?encryption=none&security=tls&sni=tesr.erfanhub.ir&fp=random&alpn=http%2F1.1&type=ws&host=tesr.erfanhub.ir&path=%2Fvl%2FUoGuCC2ItjAG6iE80ZSx%3Fed%3D2560#6",
         "vless://c43c59c6-5fdd-4109-8d8d-66578c026f02@104.20.18.167:443?encryption=none&security=tls&sni=IOWzj-QENl8R7zjVMU7klxdCtT2R.wOdiwOW334.WOrkerS.DEV&fp=random&alpn=http%2F1.1&type=ws&host=iowzj-qenl8r7zjvmu7klxdctt2r.wodiwow334.workers.dev&path=%2Fvl%2FCvYgbOvrFqG4ihZhsExQ%3Fed%3D2560#7",
         "vless://02b1ea62-173d-43df-a566-6f0f65536e23@172.67.163.166:443?encryption=none&security=tls&sni=hola.erfanfamily.ir&fp=random&type=ws&host=hola.erfanfamily.ir&path=%2F%3Fed%3D2048#8",
         "vless://ef784d0c-b149-11f1-9ea2-070c697b6f59@104.25.206.186:443?encryption=none&security=tls&sni=joke.corw.ir&type=ws&host=joke.corw.ir&path=fr3.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AB%F0%9F%87%B7%20France%205",
         "vless://57f950a2-6a87-c863-a3f7-bff34487d7c4@104.25.206.186:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=polllanszx-production.up.railway.app%3A443%2Fws%2F57f950a2-6a87-c863-a3f7-bff34487d7c4#%F0%9F%87%B3%F0%9F%87%B1%20%20Netherlands%201",
         "vless://5eb73366-b4d0-11f1-8572-bfee848f7dec@104.25.206.186:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=nl1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B3%F0%9F%87%B1%20%20Netherlands%202",
-        "vless://87d25140-b4d0-11f1-833a-738657f40212@104.16.66.15:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=%2Flt1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B1%F0%9F%87%B9%20Lithuania"
-  ],
+        "vless://87d25140-b4d0-11f1-833a-738657f40212@104.16.66.15:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=%2Flt1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B1%F0%9F%87%B9%20Lithuania",
+        { url: "vless://8e405a67-52a5-fc28-df7e-3c7f949d055f@69.46.46.9:443?encryption=none&security=tls&sni=kolgerpanel-production.up.railway.app&fp=chrome&alpn=http%2F1.1&type=ws&host=kolgerpanel-production.up.railway.app&path=%2Fws%2F8e405a67-52a5-fc28-df7e-3c7f949d055f#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20east%20railway", direct: true }
+      ],
 
 
   "5": [
