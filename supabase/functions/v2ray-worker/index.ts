@@ -45,7 +45,7 @@ function getRandomProxyIP() {
 
 const ENABLED_CONFIGS = {
   bestload: true,   // ⚡ best load (بدون فرگمنت)
-  irancell: true,   // Fragment (Irancell)
+  irancell: false,   // Fragment (Irancell)
   beta: true         // finalMask (Beta)
 };
 
