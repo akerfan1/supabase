@@ -1,8 +1,10 @@
 // Cloudflare Worker — Xray dynamic best-ping (every 30s) + Fragment + Beta (finalMask)
 // Output: JSON array with three full configs
 // Routes:
-//   /?uuid=1            -> [ LoadBalance, Irancell (Fragment), Beta (finalMask) ]
-//   /?uuid=1&view=sub   -> v2rayN/NG subscription with randomized VLESS IPs
+//   /?uuid=1              -> [ LoadBalance, Irancell (Fragment), Beta (finalMask) ]
+//   /?uuid=1&view=sub     -> v2rayN/NG subscription with randomized VLESS IPs
+//   /?uuid=1&view=fragment -> هر سرور جدا (بدون لودبالانس)، هرکدام با Fragment
+//   /?uuid=1&view=beta     -> هر سرور جدا (بدون لودبالانس)، هرکدام با Beta (finalMask)
 
 
 // ============================================================
@@ -45,7 +47,7 @@ function getRandomProxyIP() {
 
 const ENABLED_CONFIGS = {
   bestload: true,   // ⚡ best load (بدون فرگمنت)
-  irancell: false,   // Fragment (Irancell)
+  irancell: true,   // Fragment (Irancell)
   beta: true         // finalMask (Beta)
 };
 
@@ -134,6 +136,42 @@ Deno.serve(async (request) => {
 
 
   // ============================================================
+  // per-server view (view=fragment / view=beta)
+  //
+  // برخلاف حالت پیش‌فرض که همهٔ سرورها را یکجا با هم لودبالانس
+  // می‌کند، اینجا برای هر سرور یک کانفیگ کامل و مستقل ساخته
+  // می‌شود (هر کدام با همان نوع Fragment یا Beta/finalMask).
+  // خروجی یک آرایهٔ JSON است؛ هر آیتم = یک پروفایل جداگانه.
+  // ============================================================
+
+  if (view === "fragment" || view === "beta") {
+
+    const type = view === "beta" ? "finalMask" : "fragment";
+    const label = view === "beta" ? "Beta" : "Irancell";
+
+    const perServerConfigs = nodes.map((node, i) =>
+      buildFullConfig(
+        [node],
+        {
+          type,
+          remarks: `${node.tag || ("Server " + (i + 1))} | ${label}`
+        }
+      )
+    );
+
+    return new Response(
+      JSON.stringify(perServerConfigs, null, 2),
+      {
+        headers: {
+          "content-type": "application/json; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      }
+    );
+  }
+
+
+  // ============================================================
   // ساخت کانفیگ‌ها فقط برای مواردی که در ENABLED_CONFIGS فعال‌اند
   // ============================================================
 
@@ -201,30 +239,27 @@ Deno.serve(async (request) => {
 const serverGroups = {
 
   "1": [
-        "vless://50414e45-4c5f-5a45-5553-3448ea55ea1a@104.16.132.51:443?encryption=none&security=tls&sni=sdxas.erfanfamily2.ir&fp=unsafe&type=ws&host=sdxas.erfanfamily2.ir&path=%2Fstream%2FPANEL_ZEUS%2F3448ea55ea1a#1",
+     "vless://50414e45-4c5f-5a45-5553-3448ea55ea1a@104.16.132.51:443?encryption=none&security=tls&sni=sdxas.erfanfamily2.ir&fp=unsafe&type=ws&host=sdxas.erfanfamily2.ir&path=%2Fstream%2FPANEL_ZEUS%2F3448ea55ea1a#1",
         "vless://50414e45-4c5f-5a45-5553-c192d1480914@104.16.68.102:443?encryption=none&security=tls&sni=gdz543ezu4ds.v6qnd9c1.workers.dev&fp=unsafe&type=ws&host=gdz543ezu4ds.v6qnd9c1.workers.dev&path=%2Fstream%2FPANEL_ZEUS%2Fc192d1480914#2",
         "vless://efd26d58-6fc6-4999-a02c-0ca13879a756@188.114.97.8:443?encryption=none&security=tls&sni=KI3aGm44dqq-2dJpSbGFKU71VU.DOCom47457.woRKErs.DEV&fp=chrome&alpn=http%2F1.1&type=ws&host=ki3agm44dqq-2djpsbgfku71vu.docom47457.workers.dev&path=%2Fvl%2FbZhNE35Gca3Tl4JrL3H34BpmfMoO9KL%3Fed%3D2560#3",
         "vless://292032c7-15a3-4eaf-8d76-076c13832278@172.66.44.200:443?encryption=none&security=tls&sni=testu.erfanfamily.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=testu.erfanfamily.ir&path=%2Fvl%2FKIG6R8zHJxjnEPNXIeF7YLPOG9oN4%3Fed%3D2560#4",
         "vless://d97a5dee-c3e0-b8e1-63fc-517dee7a251a@104.16.66.15:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=kylerpanel-production.up.railway.app%3A443%2Fws%2Fd97a5dee-c3e0-b8e1-63fc-517dee7a251a#%F0%9F%87%B3%F0%9F%87%B1%20Netherlands%20%20railway",
         "vless://8e405a67-52a5-fc28-df7e-3c7f949d055f@104.16.70.194:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fkolgerpanel-production.up.railway.app%3A443%2Fws%2F8e405a67-52a5-fc28-df7e-3c7f949d055f#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20east%202",
         "vless://1e7cedac-b149-11f1-baef-af4c2e2a6fec@104.16.132.51:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fcz2.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A8%F0%9F%87%BF%20czech%20republic",
-        "vless://2065eb6a-b5da-11f1-bd09-2fe5b6e5c000@104.18.114.234:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fdk1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A9%F0%9F%87%B0%20Denmark",
-        { url: "vless://d75eff29-18c1-479d-9653-1ad52fecdfe4@69.46.46.91:443?encryption=none&security=tls&type=ws&host=daszsdpd.up.railway.app&path=%2Fws#railway", direct: true },
-        { url: "vless://6e2b74d0-62e8-6fdd-8c13-b27803aaab9b@opfkdgsopsea.up.railway.app:443?mode=packet-up&path=%2Fxhttp-siz10%2Fpacket-up%2F6e2b74d0-62e8-6fdd-8c13-b27803aaab9b&security=tls&alpn=h2%2Chttp%2F1.1&encryption=none&insecure=0&host=opfkdgsopsea.up.railway.app&fp=chrome&type=xhttp&allowInsecure=0&sni=opfkdgsopsea.up.railway.app#united%20state%20xhttp", direct: true }
-      ],
+        "vless://2065eb6a-b5da-11f1-bd09-2fe5b6e5c000@104.18.114.234:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fdk1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%A9%F0%9F%87%B0%20Denmark"
+  ],
 
 
   "2": [
-        "vless://7850157b-2560-435e-9695-c8a76c30f31f@172.66.44.200:443?encryption=none&security=tls&sni=first.corw.ir&fp=random&alpn=http%2F1.1&type=ws&host=first.corw.ir&path=%2Fvl%2Fhn71UJzifNrP1a3UDm5mTmCS6hX1Gu%3Fed%3D2560#5",
+    "vless://7850157b-2560-435e-9695-c8a76c30f31f@172.66.44.200:443?encryption=none&security=tls&sni=first.corw.ir&fp=random&alpn=http%2F1.1&type=ws&host=first.corw.ir&path=%2Fvl%2Fhn71UJzifNrP1a3UDm5mTmCS6hX1Gu%3Fed%3D2560#5",
         "vless://4199303a-8fd4-4e06-8799-7ccad9070671@172.66.47.176:443?encryption=none&security=tls&sni=tesr.erfanhub.ir&fp=random&alpn=http%2F1.1&type=ws&host=tesr.erfanhub.ir&path=%2Fvl%2FUoGuCC2ItjAG6iE80ZSx%3Fed%3D2560#6",
         "vless://c43c59c6-5fdd-4109-8d8d-66578c026f02@104.20.18.167:443?encryption=none&security=tls&sni=IOWzj-QENl8R7zjVMU7klxdCtT2R.wOdiwOW334.WOrkerS.DEV&fp=random&alpn=http%2F1.1&type=ws&host=iowzj-qenl8r7zjvmu7klxdctt2r.wodiwow334.workers.dev&path=%2Fvl%2FCvYgbOvrFqG4ihZhsExQ%3Fed%3D2560#7",
         "vless://02b1ea62-173d-43df-a566-6f0f65536e23@172.67.163.166:443?encryption=none&security=tls&sni=hola.erfanfamily.ir&fp=random&type=ws&host=hola.erfanfamily.ir&path=%2F%3Fed%3D2048#8",
         "vless://ef784d0c-b149-11f1-9ea2-070c697b6f59@104.25.206.186:443?encryption=none&security=tls&sni=joke.corw.ir&type=ws&host=joke.corw.ir&path=fr3.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AB%F0%9F%87%B7%20France%205",
         "vless://57f950a2-6a87-c863-a3f7-bff34487d7c4@104.25.206.186:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=polllanszx-production.up.railway.app%3A443%2Fws%2F57f950a2-6a87-c863-a3f7-bff34487d7c4#%F0%9F%87%B3%F0%9F%87%B1%20%20Netherlands%201",
         "vless://5eb73366-b4d0-11f1-8572-bfee848f7dec@104.25.206.186:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=nl1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B3%F0%9F%87%B1%20%20Netherlands%202",
-        "vless://87d25140-b4d0-11f1-833a-738657f40212@104.16.66.15:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=%2Flt1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B1%F0%9F%87%B9%20Lithuania",
-        { url: "vless://8e405a67-52a5-fc28-df7e-3c7f949d055f@69.46.46.9:443?encryption=none&security=tls&sni=kolgerpanel-production.up.railway.app&fp=chrome&alpn=http%2F1.1&type=ws&host=kolgerpanel-production.up.railway.app&path=%2Fws%2F8e405a67-52a5-fc28-df7e-3c7f949d055f#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20east%20railway", direct: true }
-      ],
+        "vless://87d25140-b4d0-11f1-833a-738657f40212@104.16.66.15:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=%2Flt1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B1%F0%9F%87%B9%20Lithuania"
+  ],
 
 
   "5": [
