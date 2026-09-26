@@ -259,7 +259,8 @@ const serverGroups = {
         "vless://57f950a2-6a87-c863-a3f7-bff34487d7c4@104.25.206.186:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=polllanszx-production.up.railway.app%3A443%2Fws%2F57f950a2-6a87-c863-a3f7-bff34487d7c4#%F0%9F%87%B3%F0%9F%87%B1%20%20Netherlands%201",
         "vless://5eb73366-b4d0-11f1-8572-bfee848f7dec@104.25.206.186:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=nl1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B3%F0%9F%87%B1%20%20Netherlands%202",
         "vless://87d25140-b4d0-11f1-833a-738657f40212@104.16.66.15:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=%2Flt1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B1%F0%9F%87%B9%20Lithuania",
-        "vless://4fd00864-b9cb-11f1-8009-37052120d486@104.16.67.219:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&type=ws&host=yes.docom47457.workers.dev&path=fr3.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AB%F0%9F%87%B7%20France%205"
+        "vless://4fd00864-b9cb-11f1-8009-37052120d486@104.16.67.219:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&type=ws&host=yes.docom47457.workers.dev&path=fr3.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AB%F0%9F%87%B7%20France%205",
+        "vless://5fbd795e-8239-0f49-6548-85adb265cda6@69.46.46.91:443?encryption=none&security=tls&sni=opfkdgsopsea.up.railway.app&fp=chrome&alpn=http%2F1.1&type=ws&host=opfkdgsopsea.up.railway.app&path=%2Fws%2F5fbd795e-8239-0f49-6548-85adb265cda6#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20east%20"
       ],
 
 
