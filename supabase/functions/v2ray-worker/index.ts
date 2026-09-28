@@ -240,7 +240,7 @@ const serverGroups = {
 
   "1": [
         "vless://50414e45-4c5f-5a45-5553-3448ea55ea1a@104.16.132.51:443?encryption=none&security=tls&sni=sdxas.erfanfamily2.ir&fp=unsafe&type=ws&host=sdxas.erfanfamily2.ir&path=%2Fstream%2FPANEL_ZEUS%2F3448ea55ea1a#1",
-        "vless://50414e45-4c5f-5a45-5553-c192d1480914@104.16.68.102:443?encryption=none&security=tls&sni=gdz543ezu4ds.v6qnd9c1.workers.dev&fp=unsafe&type=ws&host=gdz543ezu4ds.v6qnd9c1.workers.dev&path=%2Fstream%2FPANEL_ZEUS%2Fc192d1480914#2",
+        "vless://62826bbf-5d5e-4d31-af7a-d2ed39b16960@104.16.67.219:443?encryption=none&security=tls&sni=joke.erfanhub.ir&fp=chrome&type=ws&host=joke.erfanhub.ir&path=%2Fd6c82ee02bff#2",
         "vless://efd26d58-6fc6-4999-a02c-0ca13879a756@188.114.97.8:443?encryption=none&security=tls&sni=KI3aGm44dqq-2dJpSbGFKU71VU.DOCom47457.woRKErs.DEV&fp=chrome&alpn=http%2F1.1&type=ws&host=ki3agm44dqq-2djpsbgfku71vu.docom47457.workers.dev&path=%2Fvl%2FbZhNE35Gca3Tl4JrL3H34BpmfMoO9KL%3Fed%3D2560#3",
         "vless://292032c7-15a3-4eaf-8d76-076c13832278@172.66.44.200:443?encryption=none&security=tls&sni=testu.erfanfamily.ir&fp=chrome&alpn=http%2F1.1&insecure=0&allowInsecure=0&type=ws&host=testu.erfanfamily.ir&path=%2Fvl%2FKIG6R8zHJxjnEPNXIeF7YLPOG9oN4%3Fed%3D2560#4",
         "vless://d97a5dee-c3e0-b8e1-63fc-517dee7a251a@104.16.66.15:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=kylerpanel-production.up.railway.app%3A443%2Fws%2Fd97a5dee-c3e0-b8e1-63fc-517dee7a251a#%F0%9F%87%B3%F0%9F%87%B1%20Netherlands%20%20railway",
