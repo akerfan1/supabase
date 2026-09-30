@@ -1034,8 +1034,8 @@ function buildFullConfig(
 
                 lengths:
                   [
-                    "5",
-                    "94",
+                    "0",
+                    "104",
                     "1"
                   ],
 
@@ -1060,7 +1060,7 @@ function buildFullConfig(
 
                 lengths:
                   [
-                    "109",
+                    "114",
                     "1"
                   ],
 
@@ -1068,7 +1068,7 @@ function buildFullConfig(
                   ["1"],
 
                 maxSplit:
-                  "355"
+                  "11"
               }
 
             }
