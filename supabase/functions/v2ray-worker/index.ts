@@ -149,15 +149,16 @@ Deno.serve(async (request) => {
     const type = view === "beta" ? "finalMask" : "fragment";
     const label = view === "beta" ? "Beta" : "Irancell";
 
-    const perServerConfigs = nodes.map((node, i) =>
-      buildFullConfig(
-        [node],
-        {
-          type,
-          remarks: `${node.tag || ("Server " + (i + 1))} | ${label}`
-        }
-      )
-    );
+    const perServerConfigs = nodes.map((node, i) => {
+      const remarks = `${node.tag || ("Server " + (i + 1))} | ${label}`;
+
+      // Beta = ساختار فایل SNI (finalmask داخل streamSettings)
+      if (view === "beta") {
+        return buildSniConfig(node, remarks);
+      }
+
+      return buildFullConfig([node], { type, remarks });
+    });
 
     return new Response(
       JSON.stringify(perServerConfigs, null, 2),
@@ -205,15 +206,15 @@ Deno.serve(async (request) => {
 
   // 3. Config Beta (finalMask)
   if (ENABLED_CONFIGS.beta) {
-    result.push(
-      buildFullConfig(
-        nodes,
-        {
-          type: "finalMask",
-          remarks: "Beta"
-        }
-      )
-    );
+    // هر سرور یک پروفایل مستقل با ساختار فایل SNI
+    nodes.forEach((node, i) => {
+      result.push(
+        buildSniConfig(
+          node,
+          `${node.tag || ("Server " + (i + 1))} | Beta`
+        )
+      );
+    });
   }
 
   return new Response(
@@ -1515,4 +1516,231 @@ function buildFullConfig(
 
 
   return cfg;
+}
+
+
+// ============================================================
+// Beta (SNI-style)
+// ------------------------------------------------------------
+// دقیقاً همان ساختاری که فایل SNI دارد:
+//  - finalmask داخل خود streamSettings (نه outbound جدا و dialerProxy)
+//  - SNI با حروف بزرگ/کوچک تصادفی، Host و path با حروف کوچک
+//  - فقط یک outbound به نام proxy (بدون balancer)
+//  - inbound فقط socks روی 127.0.0.1
+//  - DNS + Routing کامل مثل فایل SNI
+// ============================================================
+
+const SNI_CIPHER_SUITES =
+  "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:" +
+  "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:" +
+  "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:" +
+  "TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:" +
+  "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:" +
+  "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256";
+
+function randomizeCase(s) {
+  const str = String(s || "");
+  // آی‌پی یا رشته‌ی بدون حرف را دست نزن
+  if (!/[a-z]/i.test(str) || /^[\d.:]+$/.test(str)) return str;
+  return str
+    .split("")
+    .map((c) => (Math.random() < 0.5 ? c.toLowerCase() : c.toUpperCase()))
+    .join("");
+}
+
+function buildSniConfig(node, remarks) {
+
+  // فقط VLESS؛ بقیه‌ی پروتکل‌ها مثل قبل ساخته می‌شوند
+  if (node.protocol !== "vless") {
+    return buildFullConfig([node], { type: "finalMask", remarks });
+  }
+
+  const hostLower = String(node.hostHeader || node.address).toLowerCase();
+  const sniRaw = node.sni || node.hostHeader || node.address;
+
+  return {
+    dns: {
+      hosts: {
+        "domain:googleapis.cn": "googleapis.com",
+        "dns.alidns.com": ["223.5.5.5", "223.6.6.6", "2400:3200::1", "2400:3200:baba::1"],
+        "dns.sse.cisco.com": ["208.67.220.220", "208.67.222.222", "2620:119:35::35", "2620:119:53::53"],
+        "dns.umbrella.com": ["208.67.220.220", "208.67.222.222", "2620:119:35::35", "2620:119:53::53"],
+        "one.one.one.one": ["1.1.1.1", "1.0.0.1", "2606:4700:4700::1111", "2606:4700:4700::1001"],
+        "1dot1dot1dot1.cloudflare-dns.com": ["1.1.1.1", "1.0.0.1", "2606:4700:4700::1111", "2606:4700:4700::1001"],
+        "dns.cloudflare.com": ["162.159.61.8", "172.64.41.8", "2a06:98c1:52::8", "2803:f800:53::8"],
+        "cloudflare-dns.com": ["104.16.248.249", "104.16.249.249", "2606:4700::6810:f8f9", "2606:4700::6810:f9f9"],
+        "engage.cloudflareclient.com": ["162.159.192.1", "2606:4700:d0::a29f:c001"],
+        "doh.pub": ["1.12.12.12", "120.53.53.53"],
+        "dot.pub": ["1.12.12.12", "120.53.53.53"],
+        "dns.google": ["8.8.8.8", "8.8.4.4", "2001:4860:4860::8888", "2001:4860:4860::8844"],
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112", "2620:fe::fe", "2620:fe::9"],
+        "dns.sb": ["45.11.45.11", "185.222.222.222", "2a09::", "2a11::"],
+        "common.dot.dns.yandex.net": ["77.88.8.8", "77.88.8.1", "2a02:6b8::feed:0ff", "2a02:6b8:0:1::feed:0ff"]
+      },
+      servers: [
+        {
+          address: "fakedns",
+          domains: [
+            "geosite:cn", "geosite:google", "geosite:private",
+            "domain:alidns.com", "domain:doh.pub", "domain:dot.pub",
+            "domain:360.cn", "domain:onedns.net", "geosite:cn"
+          ]
+        },
+        "https://cloudflare-dns.com/dns-query",
+        {
+          address: "223.5.5.5",
+          domains: ["geosite:cn"],
+          expectIPs: ["geoip:cn"],
+          finalQuery: true,
+          skipFallback: true,
+          tag: "domestic-dns_cn_expect_0"
+        },
+        {
+          address: "https://cloudflare-dns.com/dns-query",
+          domains: ["geosite:google"]
+        },
+        {
+          address: "223.5.5.5",
+          domains: ["geosite:private"],
+          finalQuery: true,
+          skipFallback: true,
+          tag: "domestic-dns_1_0"
+        },
+        {
+          address: "223.5.5.5",
+          domains: ["domain:alidns.com", "domain:doh.pub", "domain:dot.pub", "domain:360.cn", "domain:onedns.net"],
+          finalQuery: true,
+          skipFallback: true,
+          tag: "domestic-dns_2_0"
+        },
+        {
+          address: "223.5.5.5",
+          domains: ["geosite:cn"],
+          finalQuery: true,
+          skipFallback: true,
+          tag: "domestic-dns_3_0"
+        }
+      ],
+      tag: "dns-module"
+    },
+
+    inbounds: [
+      {
+        listen: "127.0.0.1",
+        port: 10808,
+        protocol: "socks",
+        settings: { auth: "noauth", udp: true },
+        sniffing: {
+          destOverride: ["http", "tls", "quic", "fakedns"],
+          enabled: true,
+          routeOnly: false
+        },
+        tag: "socks"
+      }
+    ],
+
+    log: { loglevel: "warning" },
+
+    outbounds: [
+      {
+        mux: { concurrency: -1, enabled: false },
+        protocol: "vless",
+        settings: {
+          address: node.address,
+          encryption: "none",
+          flow: "",
+          id: node.uuid,
+          port: node.port
+        },
+        streamSettings: {
+          finalmask: {
+            tcp: [
+              {
+                type: "fragment",
+                settings: {
+                  packets: "tlshello",
+                  lengths: ["0", "104", "1"],
+                  delays: ["0"],
+                  maxSplit: "0"
+                }
+              },
+              {
+                type: "fragment",
+                settings: {
+                  packets: "1-1",
+                  lengths: ["114", "1"],
+                  delays: ["1"],
+                  maxSplit: "11"
+                }
+              }
+            ]
+          },
+          network: node.network,
+          security: "tls",
+          tlsSettings: {
+            allowInsecure: false,
+            alpn: node.alpn || ["http/1.1"],
+            cipherSuites: SNI_CIPHER_SUITES,
+            fingerprint: "unsafe",
+            serverName: randomizeCase(sniRaw)
+          },
+          wsSettings: {
+            host: hostLower,
+            path: node.path || "/"
+          }
+        },
+        tag: "proxy"
+      },
+      { protocol: "freedom", tag: "direct" },
+      { protocol: "blackhole", tag: "block" },
+      { protocol: "dns", settings: { userLevel: 12 }, tag: "dns-out" }
+    ],
+
+    policy: {
+      levels: {
+        "0": { downlinkOnly: 0, uplinkOnly: 0 },
+        "12": { connIdle: 12, downlinkOnly: 0, uplinkOnly: 0 }
+      }
+    },
+
+    remarks,
+
+    routing: {
+      domainStrategy: "AsIs",
+      rules: [
+        { inboundTag: ["socks"], outboundTag: "dns-out", port: "53", type: "field" },
+        {
+          inboundTag: ["domestic-dns_1_0", "domestic-dns_2_0", "domestic-dns_3_0", "domestic-dns_cn_expect_0"],
+          outboundTag: "direct",
+          type: "field"
+        },
+        { inboundTag: ["dns-module"], outboundTag: "proxy", type: "field" },
+        { network: "udp", outboundTag: "block", port: "443", type: "field" },
+        { domain: ["geosite:google"], outboundTag: "proxy", type: "field" },
+        { ip: ["ext:geoip-only-cn-private.dat:private"], outboundTag: "direct", type: "field" },
+        { domain: ["geosite:private"], outboundTag: "direct", type: "field" },
+        {
+          ip: [
+            "223.5.5.5", "223.6.6.6", "2400:3200::1", "2400:3200:baba::1",
+            "119.29.29.29", "1.12.12.12", "120.53.53.53", "2402:4e00::", "2402:4e00:1::",
+            "180.76.76.76", "2400:da00::6666", "114.114.114.114", "114.114.115.115",
+            "114.114.114.119", "114.114.115.119", "114.114.114.110", "114.114.115.110",
+            "180.184.1.1", "180.184.2.2", "101.226.4.6", "218.30.118.6", "123.125.81.6",
+            "140.207.198.6", "1.2.4.8", "210.2.4.8", "52.80.66.66", "117.50.22.22",
+            "2400:7fc0:849e:200::4", "2404:c2c0:85d8:901::4", "117.50.10.10", "52.80.52.52",
+            "2400:7fc0:849e:200::8", "2404:c2c0:85d8:901::8", "117.50.60.30", "52.80.60.30"
+          ],
+          outboundTag: "direct",
+          type: "field"
+        },
+        {
+          domain: ["domain:alidns.com", "domain:doh.pub", "domain:dot.pub", "domain:360.cn", "domain:onedns.net"],
+          outboundTag: "direct",
+          type: "field"
+        },
+        { ip: ["ext:geoip-only-cn-private.dat:cn"], outboundTag: "direct", type: "field" },
+        { domain: ["geosite:cn"], outboundTag: "direct", type: "field" }
+      ]
+    }
+  };
 }
