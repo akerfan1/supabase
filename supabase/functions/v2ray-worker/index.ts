@@ -1,7 +1,7 @@
 // Cloudflare Worker — Xray dynamic best-ping (every 30s) + Fragment + Beta (finalMask)
 // Output: JSON array with three full configs
 // Routes:
-//   /?uuid=1              -> [ LoadBalance, Irancell (Fragment), Beta (finalMask) ]
+//   /?uuid=1              -> [ LoadBalance, Irancell (Fragment), Beta LoadBalance (finalMask) ]
 //   /?uuid=1&view=sub     -> v2rayN/NG subscription with randomized VLESS IPs
 //   /?uuid=1&view=fragment -> هر سرور جدا (بدون لودبالانس)، هرکدام با Fragment
 //   /?uuid=1&view=beta     -> هر سرور جدا (بدون لودبالانس)، هرکدام با Beta (finalMask)
@@ -204,17 +204,15 @@ Deno.serve(async (request) => {
     );
   }
 
-  // 3. Config Beta (finalMask)
+  // 3. Config Beta (finalMask) — یک کانفیگ لودبالانس برای همهٔ سرورها
+  // (پروفایل‌های جدا جدا فقط در view=beta برمی‌گردند)
   if (ENABLED_CONFIGS.beta) {
-    // هر سرور یک پروفایل مستقل با ساختار فایل SNI
-    nodes.forEach((node, i) => {
-      result.push(
-        buildSniConfig(
-          node,
-          `${node.tag || ("Server " + (i + 1))} | Beta`
-        )
-      );
-    });
+    result.push(
+      buildSniLoadBalanceConfig(
+        nodes,
+        "⚡Beta load balance⚡"
+      )
+    );
   }
 
   return new Response(
@@ -1548,15 +1546,139 @@ function randomizeCase(s) {
     .join("");
 }
 
+function buildSniOutbound(node, tag) {
+
+  const hostLower = String(node.hostHeader || node.address).toLowerCase();
+  const sniRaw = node.sni || node.hostHeader || node.address;
+
+  return {
+    mux: { concurrency: -1, enabled: false },
+    protocol: "vless",
+    settings: {
+      address: node.address,
+      encryption: "none",
+      flow: "",
+      id: node.uuid,
+      port: node.port
+    },
+    streamSettings: {
+      finalmask: {
+        tcp: [
+          {
+            type: "fragment",
+            settings: {
+              packets: "tlshello",
+              lengths: ["0", "104", "1"],
+              delays: ["0"],
+              maxSplit: "0"
+            }
+          },
+          {
+            type: "fragment",
+            settings: {
+              packets: "1-1",
+              lengths: ["114", "1"],
+              delays: ["1"],
+              maxSplit: "11"
+            }
+          }
+        ]
+      },
+      network: node.network,
+      security: "tls",
+      tlsSettings: {
+        allowInsecure: false,
+        alpn: node.alpn || ["http/1.1"],
+        cipherSuites: SNI_CIPHER_SUITES,
+        fingerprint: "unsafe",
+        serverName: randomizeCase(sniRaw)
+      },
+      wsSettings: {
+        host: hostLower,
+        path: node.path || "/"
+      }
+    },
+    tag
+  };
+}
+
+
+// ============================================================
+// Beta Load Balance
+// ------------------------------------------------------------
+// همان ساختار SNI/finalmask، ولی همهٔ سرورها داخل «یک» کانفیگ
+// با balancer از نوع leastLoad + burstObservatory (هر ۳۰ ثانیه).
+// ============================================================
+
+function buildSniLoadBalanceConfig(nodes, remarks) {
+
+  const vlessNodes = nodes.filter((n) => n.protocol === "vless");
+
+  // اگر هیچ VLESS نبود، به روش قبلی برگرد
+  if (!vlessNodes.length) {
+    return buildFullConfig(nodes, { type: "finalMask", remarks });
+  }
+
+  // کانفیگ پایه (DNS، inbound، policy، routing) از همان ساختار SNI
+  const cfg = buildSniConfig(vlessNodes[0], remarks);
+
+  const proxies = vlessNodes.map((n, i) =>
+    buildSniOutbound(n, `node-${i + 1}-${safeTag(n.tag)}`)
+  );
+
+  const nodeTags = proxies.map((o) => o.tag);
+
+  // outboundهای جانبی (direct / block / dns-out) همان‌ها می‌مانند
+  cfg.outbounds = [
+    ...proxies,
+    ...cfg.outbounds.filter((o) => o.tag !== "proxy")
+  ];
+
+  // هر rule که به "proxy" می‌رفت، حالا به balancer می‌رود
+  cfg.routing.rules = cfg.routing.rules.map((r) => {
+    if (r.outboundTag === "proxy") {
+      const { outboundTag, ...rest } = r;
+      return { ...rest, balancerTag: "auto" };
+    }
+    return r;
+  });
+
+  // قانون نهایی: بقیهٔ ترافیک socks → balancer
+  cfg.routing.rules.push({
+    type: "field",
+    inboundTag: ["socks"],
+    balancerTag: "auto"
+  });
+
+  cfg.routing.balancers = [
+    {
+      tag: "auto",
+      selector: nodeTags,
+      strategy: { type: "leastLoad" }
+    }
+  ];
+
+  cfg.burstObservatory = {
+    pingConfig: {
+      connectivity: "http://connectivitycheck.platform.hicloud.com/generate_204",
+      destination: "http://www.google.com/gen_204",
+      interval: "30s",
+      sampling: 5,
+      timeout: "2s"
+    },
+    subjectSelector: nodeTags
+  };
+
+  return cfg;
+}
+
+
 function buildSniConfig(node, remarks) {
 
   // فقط VLESS؛ بقیه‌ی پروتکل‌ها مثل قبل ساخته می‌شوند
   if (node.protocol !== "vless") {
     return buildFullConfig([node], { type: "finalMask", remarks });
   }
-
-  const hostLower = String(node.hostHeader || node.address).toLowerCase();
-  const sniRaw = node.sni || node.hostHeader || node.address;
 
   return {
     dns: {
@@ -1642,55 +1764,7 @@ function buildSniConfig(node, remarks) {
     log: { loglevel: "warning" },
 
     outbounds: [
-      {
-        mux: { concurrency: -1, enabled: false },
-        protocol: "vless",
-        settings: {
-          address: node.address,
-          encryption: "none",
-          flow: "",
-          id: node.uuid,
-          port: node.port
-        },
-        streamSettings: {
-          finalmask: {
-            tcp: [
-              {
-                type: "fragment",
-                settings: {
-                  packets: "tlshello",
-                  lengths: ["0", "104", "1"],
-                  delays: ["0"],
-                  maxSplit: "0"
-                }
-              },
-              {
-                type: "fragment",
-                settings: {
-                  packets: "1-1",
-                  lengths: ["114", "1"],
-                  delays: ["1"],
-                  maxSplit: "11"
-                }
-              }
-            ]
-          },
-          network: node.network,
-          security: "tls",
-          tlsSettings: {
-            allowInsecure: false,
-            alpn: node.alpn || ["http/1.1"],
-            cipherSuites: SNI_CIPHER_SUITES,
-            fingerprint: "unsafe",
-            serverName: randomizeCase(sniRaw)
-          },
-          wsSettings: {
-            host: hostLower,
-            path: node.path || "/"
-          }
-        },
-        tag: "proxy"
-      },
+      buildSniOutbound(node, "proxy"),
       { protocol: "freedom", tag: "direct" },
       { protocol: "blackhole", tag: "block" },
       { protocol: "dns", settings: { userLevel: 12 }, tag: "dns-out" }
