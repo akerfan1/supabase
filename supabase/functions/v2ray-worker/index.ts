@@ -1662,9 +1662,9 @@ function buildSniLoadBalanceConfig(nodes, remarks) {
     pingConfig: {
       connectivity: "http://connectivitycheck.platform.hicloud.com/generate_204",
       destination: "http://www.google.com/gen_204",
-      interval: "30s",
+      interval: "5m",
       sampling: 5,
-      timeout: "2s"
+      timeout: "3s"
     },
     subjectSelector: nodeTags
   };
