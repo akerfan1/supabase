@@ -260,7 +260,8 @@ const serverGroups = {
         "vless://57f950a2-6a87-c863-a3f7-bff34487d7c4@104.16.66.15:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=polllanszx-production.up.railway.app%3A443%2Fws%2F57f950a2-6a87-c863-a3f7-bff34487d7c4#%F0%9F%87%B3%F0%9F%87%B1%20%20Netherlands%201",
         "vless://4fd00864-b9cb-11f1-8009-37052120d486@154.211.8.195:443?encryption=none&security=tls&sni=joke.corw.ir&type=ws&host=joke.corw.ir&path=fr3.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AB%F0%9F%87%B7%20France%205",
         "vless://3eca1933-bb13-41ad-8f79-4c5a3ec8408d@104.16.132.51:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=lokepanel-production.up.railway.app%3A443%2Fws%2F3eca1933-bb13-41ad-8f79-4c5a3ec8408d#%F0%9F%87%B3%F0%9F%87%B1%20%20Netherlands%202",
-        "vless://3b20d592-baac-11f1-b452-f37f3180a4b9@104.16.194.147:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=%2Flt1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B1%F0%9F%87%B9%20Lithuania"
+        "vless://3b20d592-baac-11f1-b452-f37f3180a4b9@104.16.194.147:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=%2Flt1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B1%F0%9F%87%B9%20Lithuania",
+        { url: "vless://420fb9d3-3640-46bc-af94-289e2f12db43@69.46.46.90:443?path=%2FSideRail%2Fws-uwQMOxLz&security=tls&alpn=http%2F1.1&encryption=none&insecure=0&host=siderail-production-d19a.up.railway.app&fp=chrome&type=ws&allowInsecure=0&sni=siderail-production-d19a.up.railway.app#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20east%203", direct: true }
       ],
 
 
