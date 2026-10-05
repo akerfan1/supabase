@@ -298,6 +298,9 @@ const serverGroups = {
         "vless://3c80097e-bd15-11f1-b4a2-0b8cc777ed37@172.66.44.200:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fee1.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AA%F0%9F%87%AA%20Estonia%201",
         "vless://8b75d9aa-bd15-11f1-a2c6-6fdb7335ecc7@104.16.70.194:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Ffr4.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AB%F0%9F%87%B7%20France%203",
         "vless://b35cb664-bd5b-11f1-8a17-33764cc07f69@104.16.181.106:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Fru3.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%B7%F0%9F%87%BA%20Russia"
+      ],
+  "6": [
+
       ]
 
 };
