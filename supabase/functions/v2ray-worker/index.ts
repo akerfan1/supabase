@@ -266,8 +266,7 @@ const serverGroups = {
         "vless://02b1ea62-173d-43df-a566-6f0f65536e23@104.16.196.44:443?encryption=none&security=tls&sni=hola.erfanfamily.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=hola.erfanfamily.ir&path=%2F%3Fed%3D2048#8%20irancell",
         "vless://57f950a2-6a87-c863-a3f7-bff34487d7c4@104.16.196.44:443?encryption=none&security=tls&sni=joke.corw.ir&fp=chrome&alpn=http%2F1.1&type=ws&host=joke.corw.ir&path=polllanszx-production.up.railway.app%3A443%2Fws%2F57f950a2-6a87-c863-a3f7-bff34487d7c4#%F0%9F%87%B3%F0%9F%87%B1%20%20Netherlands%201%20irancell",
         "vless://420fb9d3-3640-46bc-af94-289e2f12db43@104.25.206.186:443?encryption=none&security=tls&sni=siderail-production-d19a.up.railway.app&fp=chrome&alpn=http%2F1.1&type=ws&host=siderail-production-d19a.up.railway.app&path=%2FSideRail%2Fws-uwQMOxLz#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20east%203%20irancell",
-        "vless://4c509c66-376e-4df2-aaa6-76b05030ecda@104.16.102.15:443?encryption=none&security=tls&sni=dfvsvdxc.up.railway.app&fp=chrome&alpn=http%2F1.1&type=ws&host=dfvsvdxc.up.railway.app&path=%2Fws%2F230e40e1-06e0-48fc-a232-e678c7ba64d4%3Fed%3D2560#%F0%9F%87%B3%F0%9F%87%B1%20Netherlands%202%20irancell",
-        "vless://8b75d9aa-bd15-11f1-a2c6-6fdb7335ecc7@104.16.181.106:443?encryption=none&security=tls&sni=yes.docom47457.workers.dev&fp=chrome&alpn=http%2F1.1&type=ws&host=yes.docom47457.workers.dev&path=%2Ffr4.vpnjantit.com%3A10002%2Fvpnjantit#%F0%9F%87%AB%F0%9F%87%B7%20France%203"
+        "vless://4c509c66-376e-4df2-aaa6-76b05030ecda@104.16.102.15:443?encryption=none&security=tls&sni=dfvsvdxc.up.railway.app&fp=chrome&alpn=http%2F1.1&type=ws&host=dfvsvdxc.up.railway.app&path=%2Fws%2F230e40e1-06e0-48fc-a232-e678c7ba64d4%3Fed%3D2560#%F0%9F%87%B3%F0%9F%87%B1%20Netherlands%202%20irancell"
       ],
 
 
